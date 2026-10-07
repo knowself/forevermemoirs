@@ -16,10 +16,16 @@ ForeverMemoirs (est. Hermosa Beach, CA) produced A&E Biography-style personal do
 
 ## What's in this repo
 
+The site lives at the repo root, the way our other projects are arranged:
+
+- `src/app/` — Next.js pages (home, about, order, order API)
+- `src/components/` — shared header/footer
+- `public/` — static assets (`public/images/logo.jpg` is the original ForeverMemoirs logo)
+- `scripts/` — `foremem.ts`, the ForeverMemoirs CLI
+- `bin/` — the `foremem` executable
+- `drizzle/` — database schema (Neon/PostgreSQL)
+- `doc/` — offer ladder and production notes
 - `photo-lab/` — open-source photo restoration pipeline (GFPGAN + CodeFormer + Real-ESRGAN). Tested: ~30s–4min per photo on CPU, $0 marginal cost. Human QC on every photo before delivery — AI must never change a face.
-- `jingle/` — open-source 15-second jingle composer (numpy + ffmpeg, no samples, no GPU). Every tribute video gets its own music.
-- `brand/` — the original ForeverMemoirs logo.
-- `docs/` — offer ladder and production notes.
 
 ## The pipeline
 
@@ -28,17 +34,18 @@ Old photo in → CodeFormer (faces, fidelity-first) → Real-ESRGAN (background)
 → human QC → restored photo out → optional video tribute with original music
 ```
 
+## CLI
+
+```bash
+npm install
+foremem doctor              # audit the environment
+foremem dev                 # start the dev server
+foremem restore in.jpg out.jpg   # restore a photo with the photo-lab
+```
+
 ## Setup (photo-lab)
 
 ```bash
-python3 -m venv venv && source venv/bin/activate
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-pip install gfpgan realesrgan
-# download GFPGANv1.4.pth from https://github.com/TencentARC/GFPGAN/releases
-# optional: CodeFormer for max fidelity → https://github.com/sczhou/CodeFormer
-python restore.py input.jpg output.jpg
+python3 -m venv photo-lab/venv
+photo-lab/venv/bin/pip install -r photo-lab/requirements.txt  # see photo-lab/README.md
 ```
-
-## License
-
-TBD — to be chosen by the founder.

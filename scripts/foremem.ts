@@ -22,7 +22,7 @@ dotenv.config({ path: '.env.local', override: true });
 
 const args = minimist(process.argv.slice(2));
 const command = args._[0];
-const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const REPO_ROOT = path.resolve(__dirname, '..');
 
 async function main() {
   console.log(`🎞️  ForeverMemoirs CLI (foremem) v2.0.0`);
@@ -76,19 +76,19 @@ async function runDoctor() {
   console.log('\nEnvironment audit:\n');
   let allOk = true;
   allOk &&= check('Node version', process.version.startsWith('v24') || process.version.startsWith('v22') || process.version.startsWith('v20'), `found ${process.version}, want Node 20+`);
-  allOk &&= check('site/package.json', fs.existsSync(path.join(REPO_ROOT, 'site', 'package.json')));
-  allOk &&= check('site/node_modules', fs.existsSync(path.join(REPO_ROOT, 'site', 'node_modules')), 'run `npm install` in site/');
+  allOk &&= check('package.json', fs.existsSync(path.join(REPO_ROOT, 'package.json')));
+  allOk &&= check('node_modules', fs.existsSync(path.join(REPO_ROOT, 'node_modules')), 'run `npm install`');
   allOk &&= check('DATABASE_URL set', !!process.env.DATABASE_URL, 'orders API will only log until Neon is connected');
   const venvPy = path.join(REPO_ROOT, 'photo-lab', 'venv', 'bin', 'python');
   allOk &&= check('photo-lab venv', fs.existsSync(venvPy), 'photo restoration needs the Python venv (see photo-lab/README.md)');
-  allOk &&= check('brand/logo.jpg', fs.existsSync(path.join(REPO_ROOT, 'brand', 'logo.jpg')));
+  allOk &&= check('public/images/logo.jpg', fs.existsSync(path.join(REPO_ROOT, 'public', 'images', 'logo.jpg')));
   console.log(allOk ? '\nAll good.\n' : '\nSome checks failed — see hints above.\n');
 }
 
 async function runDev() {
   console.log('Starting dev server…');
   const child = spawn('npm', ['run', 'dev'], {
-    cwd: path.join(REPO_ROOT, 'site'),
+    cwd: REPO_ROOT,
     stdio: 'inherit',
     shell: true,
   });

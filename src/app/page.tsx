@@ -38,7 +38,7 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
-        <img src="/logo.jpg" alt="ForeverMemoirs" className="mx-auto h-24 w-auto" />
+        <img src="/images/logo.jpg" alt="ForeverMemoirs" className="mx-auto h-24 w-auto" />
         <h1 className="mt-8 font-serif text-5xl leading-tight tracking-tight">
           No life story should go untold.
         </h1>

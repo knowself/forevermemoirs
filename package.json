@@ -8,7 +8,7 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
-  "description": "ForeverMemoirs 2.0 — No life story should go untold.",
+  "description": "ForeverMemoirs 2.0 \u2014 No life story should go untold.",
   "devDependencies": {
     "@types/minimist": "^1.2.5",
     "@types/node": "^24.0.0",
@@ -23,7 +23,7 @@
   "engines": {
     "node": "24.x"
   },
-  "name": "forevermemoirs-site",
+  "name": "forevermemoirs",
   "private": true,
   "scripts": {
     "build": "next build",
