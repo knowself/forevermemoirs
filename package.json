@@ -22,7 +22,7 @@
     "tsx": "^4.19.0"
   },
   "engines": {
-    "node": "24.x"
+    "node": ">=20.0.0"
   },
   "name": "forevermemoirs",
   "private": true,

@@ -75,7 +75,7 @@ function check(label: string, ok: boolean, hint = '') {
 async function runDoctor() {
   console.log('\nEnvironment audit:\n');
   let allOk = true;
-  allOk &&= check('Node version', process.version.startsWith('v24') || process.version.startsWith('v22') || process.version.startsWith('v20'), `found ${process.version}, want Node 20+`);
+  allOk &&= check('Node version', parseInt(process.versions.node.split('.')[0], 10) >= 20, `found ${process.version}, want Node 20+`);
   allOk &&= check('package.json', fs.existsSync(path.join(REPO_ROOT, 'package.json')));
   allOk &&= check('node_modules', fs.existsSync(path.join(REPO_ROOT, 'node_modules')), 'run `npm install`');
   allOk &&= check('DATABASE_URL set', !!process.env.DATABASE_URL, 'orders API will only log until Neon is connected');

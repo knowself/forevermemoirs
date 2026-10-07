@@ -1,110 +1,158 @@
 import Link from "next/link";
-
-const TIERS = [
-  {
-    name: "Memory Rescue",
-    price: "$49",
-    unit: "per photo",
-    blurb: "One cherished photo, professionally restored in 48 hours. Faded, torn, or worn — we bring it back.",
-  },
-  {
-    name: "The Shoebox",
-    price: "$149",
-    unit: "5 photos",
-    blurb: "Five photos restored, plus a 60-second video tribute with original music. Perfect for anniversaries and memorials.",
-  },
-  {
-    name: "The Memoir Film",
-    price: "$997",
-    unit: "one-time",
-    blurb: "Remote interviews, AI-assisted editing, your restored photos woven into a film your family will keep forever.",
-  },
-  {
-    name: "The Biography",
-    price: "$2,997",
-    unit: "one-time",
-    blurb: "Multi-session family interviews and full archival treatment. The definitive film of a life, produced remotely.",
-  },
-  {
-    name: "LifeCharts 2.0",
-    price: "$297",
-    unit: "per year",
-    blurb: "Your family sends videos all year; we cut the annual film. The modern video diary.",
-  },
-];
+import { BeforeAfterSlider } from "../components/BeforeAfterSlider";
+import { OfferLadder } from "../components/OfferLadder";
+import { CinematicShowcase } from "../components/CinematicShowcase";
+import { RestorationPipeline } from "../components/RestorationPipeline";
+import { TrustAndFAQ } from "../components/TrustAndFAQ";
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6 py-20 text-center">
-        <img src="/images/logo.jpg" alt="ForeverMemoirs" className="mx-auto h-24 w-auto" />
-        <h1 className="mt-8 font-serif text-5xl leading-tight tracking-tight">
-          No life story should go untold.
+    <div className="relative overflow-hidden film-grain">
+      {/* Hero Ambient Background Orbs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none">
+        <div className="absolute top-10 left-1/4 w-[500px] h-[500px] rounded-full bg-gold-500/10 blur-[120px]" />
+        <div className="absolute top-40 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-600/10 blur-[140px]" />
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative mx-auto max-w-6xl px-6 pt-16 sm:pt-24 pb-16 text-center z-10">
+        <div className="mx-auto inline-flex items-center gap-2.5 rounded-full border border-gold-500/30 bg-ink-900/80 px-4 py-1.5 text-xs text-parchment-100 shadow-xl backdrop-blur-md">
+          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-mono text-gold-300">ForeverMemoirs 2.0</span>
+          <span className="text-white/20">•</span>
+          <span className="text-parchment-200/70">Est. Hermosa Beach, CA</span>
+        </div>
+
+        <h1 className="mx-auto mt-8 max-w-4xl font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-parchment-50 leading-[1.12]">
+          No life story should{" "}
+          <span className="gold-text-gradient italic font-normal">
+            go untold.
+          </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-ink/70">
-          We restore your faded photographs and turn your family&apos;s memories into
-          films worth keeping — from a single $49 photo rescue to a complete
-          life-story documentary, all produced remotely.
+
+        <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-parchment-200/80 leading-relaxed">
+          We restore your family&apos;s weathered photographs with museum-grade fidelity and craft personal
+          A&amp;E Biography-style documentary films — from a single{" "}
+          <span className="text-gold-300 font-semibold">$49 photo rescue</span> to a complete
+          multi-session family legacy, produced entirely remotely.
         </p>
-        <div className="mt-10 flex justify-center gap-4">
-          <Link href="/order" className="rounded-full bg-ink px-8 py-3 text-parchment hover:bg-gold hover:text-ink">
-            Restore a Photo — $49
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/order"
+            className="w-full sm:w-auto rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 px-8 py-3.5 text-sm font-bold text-ink-950 transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:shadow-gold-500/25 active:scale-95 flex items-center justify-center gap-2"
+          >
+            <span>Restore a Photo</span>
+            <span className="text-xs bg-ink-950/20 px-2 py-0.5 rounded-full font-mono">$49</span>
+            <svg className="w-4 h-4 ml-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
           </Link>
-          <Link href="/about" className="rounded-full border border-ink/20 px-8 py-3 hover:border-gold">
-            Our Story
+          <Link
+            href="/#tiers"
+            className="w-full sm:w-auto rounded-full border border-gold-500/30 bg-ink-900/60 px-8 py-3.5 text-sm font-medium text-parchment-100 backdrop-blur-sm transition-all hover:border-gold-400 hover:text-gold-300"
+          >
+            Explore The Offer Ladder
           </Link>
         </div>
-      </section>
 
-      {/* How it works */}
-      <section className="border-y border-ink/10 bg-white/60">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-center font-serif text-3xl">How it works</h2>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {[
-              { n: "1", t: "Send your photo", d: "Upload a scan or a phone photo of your print. Your original never leaves your hands." },
-              { n: "2", t: "We restore it", d: "AI-assisted restoration with human eyes on every photo — faces stay true to the person." },
-              { n: "3", t: "You receive it", d: "High-resolution file back in 48 hours. Love it or you don't pay." },
-            ].map((s) => (
-              <div key={s.n} className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold font-serif text-xl text-ink">{s.n}</div>
-                <h3 className="mt-4 font-serif text-xl">{s.t}</h3>
-                <p className="mt-2 text-sm text-ink/70">{s.d}</p>
-              </div>
-            ))}
+        {/* Live Heritage Stats */}
+        <div className="mt-16 border-t border-white/5 pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div>
+            <div className="font-serif text-2xl sm:text-3xl font-bold text-gold-300">48 Hours</div>
+            <div className="mt-1 text-xs text-parchment-200/60 uppercase tracking-wider">Fast Turnaround</div>
+          </div>
+          <div>
+            <div className="font-serif text-2xl sm:text-3xl font-bold text-gold-300">$49</div>
+            <div className="mt-1 text-xs text-parchment-200/60 uppercase tracking-wider">Photo Restoration</div>
+          </div>
+          <div>
+            <div className="font-serif text-2xl sm:text-3xl font-bold text-gold-300">100%</div>
+            <div className="mt-1 text-xs text-parchment-200/60 uppercase tracking-wider">Human Master QC</div>
+          </div>
+          <div>
+            <div className="font-serif text-2xl sm:text-3xl font-bold text-gold-300">Remote</div>
+            <div className="mt-1 text-xs text-parchment-200/60 uppercase tracking-wider">Zoom Interviews</div>
           </div>
         </div>
       </section>
 
-      {/* Offer ladder */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-center font-serif text-3xl">Choose your memoir</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {TIERS.map((t) => (
-            <div key={t.name} className="flex flex-col rounded-2xl border border-ink/10 bg-white p-6 shadow-sm">
-              <h3 className="font-serif text-xl">{t.name}</h3>
-              <p className="mt-2">
-                <span className="font-serif text-3xl">{t.price}</span>{" "}
-                <span className="text-sm text-ink/60">{t.unit}</span>
-              </p>
-              <p className="mt-3 flex-1 text-sm text-ink/70">{t.blurb}</p>
-              <Link href="/order" className="mt-6 rounded-full bg-ink px-5 py-2 text-center text-sm text-parchment hover:bg-gold hover:text-ink">
-                Start
-              </Link>
-            </div>
-          ))}
+      {/* Interactive Photo Restoration Section */}
+      <section id="restoration" className="mx-auto max-w-6xl px-6 py-16 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <span className="text-xs uppercase tracking-widest text-gold-300 font-semibold">
+            Interactive Comparison
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-parchment-100">
+            See the CodeFormer Restoration in Action
+          </h2>
+          <p className="text-sm text-parchment-200/70">
+            Drag the gold divider to inspect how an 80-year-old scratched, creased family print is restored to archival brilliance without ever altering the subject&apos;s face.
+          </p>
         </div>
+
+        <BeforeAfterSlider />
       </section>
 
-      {/* Promise */}
-      <section className="mx-auto max-w-3xl px-6 py-16 text-center">
-        <h2 className="font-serif text-3xl">Our promise</h2>
-        <p className="mt-4 text-ink/70">
-          Your photos and films belong to you — always. We never use your family&apos;s
-          images without your written consent, and every restoration is checked by
-          human eyes before it ships. If a photo can&apos;t be restored, you don&apos;t pay.
-        </p>
+      {/* The 5-Step Pipeline */}
+      <RestorationPipeline />
+
+      {/* Cinematic Documentary Showcase */}
+      <section className="mx-auto max-w-6xl px-6 py-20 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <span className="text-xs uppercase tracking-widest text-gold-300 font-semibold">
+            Heirloom Personal Documentaries
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-parchment-100">
+            Films Your Family Will Keep Forever
+          </h2>
+          <p className="text-sm text-parchment-200/70">
+            Personal films produced with the gravitas of an A&amp;E Biography, recorded over comfortable Zoom sessions with our oral historians.
+          </p>
+        </div>
+
+        <CinematicShowcase />
+      </section>
+
+      {/* The Complete Offer Ladder */}
+      <OfferLadder />
+
+      {/* Trust & FAQ */}
+      <TrustAndFAQ />
+
+      {/* Final Call to Action */}
+      <section className="relative mx-auto max-w-5xl px-6 py-20 text-center z-10">
+        <div className="relative rounded-3xl border border-gold-500/30 bg-gradient-to-b from-ink-900 via-ink-950 to-black p-10 sm:p-16 overflow-hidden shadow-2xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-radial-gold opacity-25 pointer-events-none" />
+          
+          <img
+            src="/images/logo.jpg"
+            alt="ForeverMemoirs"
+            className="mx-auto h-16 w-16 rounded-full border border-gold-500/40 object-cover shadow-lg mb-6"
+          />
+
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-parchment-50 max-w-2xl mx-auto leading-tight">
+            Every family has a story. Let&apos;s make sure yours survives.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-parchment-200/70">
+            Begin today with a single photograph for $49. 48-hour delivery, complete archival rights, and a 100% money-back guarantee.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/order"
+              className="w-full sm:w-auto rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 px-8 py-4 text-sm font-bold text-ink-950 hover:brightness-110 shadow-lg shadow-gold-500/25 active:scale-95"
+            >
+              Start My Photo Restoration — $49
+            </Link>
+            <Link
+              href="/about"
+              className="w-full sm:w-auto rounded-full border border-white/20 px-8 py-4 text-sm font-medium text-parchment-100 hover:border-gold-400 hover:text-gold-300 transition-colors"
+            >
+              Learn About ForeverMemoirs 2.0
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );
