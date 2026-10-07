@@ -1,6 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Header, Footer } from "../components/chrome";
+import { Header, Footer, MobileCTA } from "../components/chrome";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: "ForeverMemoirs 2.0 — No Life Story Should Go Untold",
@@ -30,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileCTA />
       </body>
     </html>
   );

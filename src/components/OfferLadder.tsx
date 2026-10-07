@@ -139,10 +139,10 @@ export function OfferLadder() {
         </p>
 
         {/* Filter Tabs */}
-        <div className="pt-4 flex items-center justify-center gap-2">
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
           <button
             onClick={() => setFilter("all")}
-            className={`rounded-full px-4 py-2 text-xs font-medium transition-all ${
+            className={`rounded-full px-4 min-h-[44px] inline-flex items-center text-xs font-medium transition-all ${
               filter === "all"
                 ? "bg-gold-500 text-ink-950 font-semibold shadow-md shadow-gold-500/20"
                 : "border border-white/10 text-parchment-200/60 hover:text-parchment-100 hover:border-white/20"
@@ -152,7 +152,7 @@ export function OfferLadder() {
           </button>
           <button
             onClick={() => setFilter("photos")}
-            className={`rounded-full px-4 py-2 text-xs font-medium transition-all ${
+            className={`rounded-full px-4 min-h-[44px] inline-flex items-center text-xs font-medium transition-all ${
               filter === "photos"
                 ? "bg-gold-500 text-ink-950 font-semibold shadow-md shadow-gold-500/20"
                 : "border border-white/10 text-parchment-200/60 hover:text-parchment-100 hover:border-white/20"
@@ -162,7 +162,7 @@ export function OfferLadder() {
           </button>
           <button
             onClick={() => setFilter("films")}
-            className={`rounded-full px-4 py-2 text-xs font-medium transition-all ${
+            className={`rounded-full px-4 min-h-[44px] inline-flex items-center text-xs font-medium transition-all ${
               filter === "films"
                 ? "bg-gold-500 text-ink-950 font-semibold shadow-md shadow-gold-500/20"
                 : "border border-white/10 text-parchment-200/60 hover:text-parchment-100 hover:border-white/20"
@@ -266,7 +266,7 @@ export function OfferLadder() {
           <img
             src="/images/shoebox-memories.jpg"
             alt="The Shoebox of Family Memories"
-            className="w-28 h-28 rounded-2xl object-cover border border-gold-500/30 shadow-xl shrink-0 hidden sm:block"
+            className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl object-cover border border-gold-500/30 shadow-xl shrink-0"
           />
           <div>
             <span className="text-xs font-semibold uppercase tracking-wider text-gold-300">

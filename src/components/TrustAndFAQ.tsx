@@ -88,12 +88,13 @@ export function TrustAndFAQ() {
               <div key={idx} className="pt-4 pb-2">
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left group"
+                  aria-expanded={isOpen}
+                  className="w-full min-h-[44px] flex items-center justify-between text-left group py-2"
                 >
                   <span className="font-serif text-base sm:text-lg font-medium text-parchment-100 group-hover:text-gold-300 transition-colors">
                     {faq.q}
                   </span>
-                  <span className={`ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gold-500/30 text-gold-300 transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}>
+                  <span className={`ml-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold-500/30 text-gold-300 transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}>
                     +
                   </span>
                 </button>

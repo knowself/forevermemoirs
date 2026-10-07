@@ -42,13 +42,13 @@ export function Header() {
                 2.0
               </span>
             </div>
-            <span className="text-[10px] uppercase tracking-widest text-parchment-200/50">
+            <span className="hidden min-[420px]:block text-[10px] uppercase tracking-widest text-parchment-200/50">
               Hermosa Beach, CA • Est. 2020
             </span>
           </div>
         </Link>
 
-        <nav className="flex items-center gap-6 sm:gap-8 text-sm">
+        <nav className="flex items-center gap-3 sm:gap-8 text-sm">
           <Link
             href="/#restoration"
             className="hidden md:inline-block text-parchment-200/80 hover:text-gold-300 transition-colors"
@@ -73,7 +73,7 @@ export function Header() {
           </Link>
           <Link
             href="/order"
-            className="relative group overflow-hidden rounded-full px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/25 active:scale-95"
+            className="relative group overflow-hidden rounded-full px-4 py-2 sm:px-6 sm:py-2.5 min-h-[44px] inline-flex items-center text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/25 active:scale-95"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 transition-all duration-300 group-hover:brightness-110" />
             <span className="relative text-ink-950 font-semibold flex items-center gap-1.5">
@@ -90,13 +90,35 @@ export function Header() {
   );
 }
 
+export function MobileCTA() {
+  const pathname = usePathname();
+  // Don't cover the order form's own submit button
+  if (pathname === "/order") return null;
+  return (
+    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden">
+      <div className="border-t border-gold-500/25 bg-ink-950/90 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <Link
+          href="/order"
+          className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-sm font-bold text-ink-950 shadow-lg shadow-gold-500/25 active:scale-[0.98]"
+        >
+          <span>Restore a Photo</span>
+          <span className="rounded-full bg-ink-950/20 px-2 py-0.5 font-mono text-xs">$49</span>
+        </Link>
+        <p className="mt-1.5 text-center text-[10px] text-parchment-200/50">
+          48-hour turnaround • Love it or $0
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="relative border-t border-gold-500/15 bg-ink-950 text-parchment-200/70 overflow-hidden">
       {/* Subtle backdrop glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-48 bg-radial-gold pointer-events-none opacity-40" />
 
-      <div className="mx-auto max-w-6xl px-6 pt-16 pb-12 relative z-10">
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-28 md:pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/5">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">

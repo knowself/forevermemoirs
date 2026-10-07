@@ -38,7 +38,7 @@ export function BeforeAfterSlider() {
           onMouseLeave={() => setIsDragging(false)}
           onMouseMove={handleMouseMove}
           onTouchMove={handleTouchMove}
-          className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-ink-950 cursor-ew-resize"
+          className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-ink-950 cursor-ew-resize touch-pan-y"
         >
           {/* Restored Layer (Full background layer) */}
           <img
@@ -77,23 +77,25 @@ export function BeforeAfterSlider() {
 
           {/* Badge: Original / Damaged (Left) */}
           <div
-            className="absolute top-4 left-4 z-10 pointer-events-none transition-opacity duration-200"
+            className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 pointer-events-none transition-opacity duration-200"
             style={{ opacity: sliderPosition > 15 ? 1 : 0 }}
           >
-            <div className="rounded-full bg-ink-950/80 px-3.5 py-1.5 text-[11px] font-medium tracking-wider uppercase text-amber-200/90 backdrop-blur-md border border-amber-500/30 flex items-center gap-1.5 shadow-lg">
+            <div className="rounded-full bg-ink-950/80 px-3 py-1.5 text-[10px] sm:text-[11px] font-medium tracking-wider uppercase text-amber-200/90 backdrop-blur-md border border-amber-500/30 flex items-center gap-1.5 shadow-lg">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              <span>Original (Faded & Scratched)</span>
+              <span className="sm:hidden">Original</span>
+              <span className="hidden sm:inline">Original (Faded &amp; Scratched)</span>
             </div>
           </div>
 
           {/* Badge: Restored Master (Right) */}
           <div
-            className="absolute top-4 right-4 z-10 pointer-events-none transition-opacity duration-200"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 pointer-events-none transition-opacity duration-200"
             style={{ opacity: sliderPosition < 85 ? 1 : 0 }}
           >
-            <div className="rounded-full bg-ink-950/80 px-3.5 py-1.5 text-[11px] font-medium tracking-wider uppercase text-gold-300 backdrop-blur-md border border-gold-500/40 flex items-center gap-1.5 shadow-lg">
+            <div className="rounded-full bg-ink-950/80 px-3 py-1.5 text-[10px] sm:text-[11px] font-medium tracking-wider uppercase text-gold-300 backdrop-blur-md border border-gold-500/40 flex items-center gap-1.5 shadow-lg">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>Restored Master (CodeFormer + Human QC)</span>
+              <span className="sm:hidden">Restored</span>
+              <span className="hidden sm:inline">Restored Master (CodeFormer + Human QC)</span>
             </div>
           </div>
 

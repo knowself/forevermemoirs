@@ -226,7 +226,7 @@ function OrderContent() {
                     name="name"
                     required
                     placeholder="e.g. Eleanor Vance"
-                    className="w-full rounded-xl border border-white/15 bg-ink-900/80 px-4 py-2.5 text-sm text-parchment-100 placeholder:text-parchment-200/30 focus:border-gold-400 focus:outline-none focus:ring-1 focus:ring-gold-400"
+                    className="w-full rounded-xl border border-white/15 bg-ink-900/80 px-4 py-3 text-sm text-parchment-100 placeholder:text-parchment-200/30 focus:border-gold-400 focus:outline-none focus:ring-1 focus:ring-gold-400"
                   />
                 </div>
                 <div>
@@ -236,7 +236,7 @@ function OrderContent() {
                     type="email"
                     required
                     placeholder="eleanor@example.com"
-                    className="w-full rounded-xl border border-white/15 bg-ink-900/80 px-4 py-2.5 text-sm text-parchment-100 placeholder:text-parchment-200/30 focus:border-gold-400 focus:outline-none focus:ring-1 focus:ring-gold-400"
+                    className="w-full rounded-xl border border-white/15 bg-ink-900/80 px-4 py-3 text-sm text-parchment-100 placeholder:text-parchment-200/30 focus:border-gold-400 focus:outline-none focus:ring-1 focus:ring-gold-400"
                   />
                 </div>
               </div>

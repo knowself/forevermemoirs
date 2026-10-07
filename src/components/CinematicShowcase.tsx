@@ -24,18 +24,18 @@ export function CinematicShowcase() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
             {/* Film Camera UI / Timecode Overlay */}
-            <div className="absolute top-4 left-4 flex items-center gap-3 pointer-events-none">
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2 sm:gap-3 pointer-events-none">
               <span className="flex items-center gap-1.5 rounded-full bg-red-600/80 px-2.5 py-1 text-[10px] font-mono tracking-widest text-white uppercase backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-white animate-ping" />
                 REC 4K
               </span>
-              <span className="font-mono text-xs text-parchment-100/90 tracking-wider">
+              <span className="hidden sm:inline font-mono text-xs text-parchment-100/90 tracking-wider">
                 TC 01:24:08:14
               </span>
             </div>
 
-            <div className="absolute top-4 right-4 pointer-events-none">
-              <span className="rounded bg-black/60 px-2 py-0.5 font-mono text-[11px] text-gold-300 border border-gold-500/30">
+            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 pointer-events-none">
+              <span className="rounded bg-black/60 px-2 py-0.5 font-mono text-[10px] sm:text-[11px] text-gold-300 border border-gold-500/30">
                 24 FPS • 35MM LOOK
               </span>
             </div>
@@ -58,14 +58,14 @@ export function CinematicShowcase() {
             </button>
 
             {/* Bottom Caption & Audio Wave */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
-              <div>
-                <p className="font-serif text-sm sm:text-base text-parchment-100 font-semibold drop-shadow-md">
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-end justify-between gap-3 pointer-events-none">
+              <div className="min-w-0">
+                <p className="font-serif text-xs sm:text-base text-parchment-100 font-semibold drop-shadow-md truncate">
                   &ldquo;The Miller Family Memoir: Margaret&apos;s Chapter&rdquo;
                 </p>
-                <p className="text-xs text-gold-300/80">Produced remotely via guided archival session</p>
+                <p className="hidden sm:block text-xs text-gold-300/80">Produced remotely via guided archival session</p>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="hidden sm:flex items-center gap-1 shrink-0">
                 {[40, 75, 55, 90, 65, 30, 85, 45, 95, 60].map((h, i) => (
                   <span
                     key={i}
