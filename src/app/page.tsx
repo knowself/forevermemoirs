@@ -37,20 +37,10 @@ export default function Home() {
           multi-session family legacy, produced entirely remotely.
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/order"
-            className="w-full sm:w-auto rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 px-8 py-3.5 text-sm font-bold text-ink-950 transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:shadow-gold-500/25 active:scale-95 flex items-center justify-center gap-2"
-          >
-            <span>Restore a Photo</span>
-            <span className="text-xs bg-ink-950/20 px-2 py-0.5 rounded-full font-mono">$49</span>
-            <svg className="w-4 h-4 ml-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
+        <div className="mt-10 flex items-center justify-center">
           <Link
             href="/#tiers"
-            className="w-full sm:w-auto rounded-full border border-gold-500/30 bg-ink-900/60 px-8 py-3.5 text-sm font-medium text-parchment-100 backdrop-blur-sm transition-all hover:border-gold-400 hover:text-gold-300"
+            className="w-full sm:w-auto rounded-full border border-gold-500/30 bg-ink-900/60 px-8 py-3.5 min-h-[48px] inline-flex items-center justify-center text-sm font-medium text-parchment-100 backdrop-blur-sm transition-all hover:border-gold-400 hover:text-gold-300"
           >
             Explore The Offer Ladder
           </Link>
