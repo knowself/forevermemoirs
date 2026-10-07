@@ -1,1 +1,40 @@
-{"dependencies":{"@neondatabase/serverless":"^1.1.0","drizzle-orm":"^0.45.2","next":"^16.2.4","react":"^19.2.5","react-dom":"^19.2.5"},"description":"ForeverMemoirs 2.0 — No life story should go untold.","devDependencies":{"@types/node":"^24.0.0","@types/react":"^19.2.14","@types/react-dom":"^19.2.3","autoprefixer":"^10.4.20","drizzle-kit":"^0.31.10","postcss":"^8.4.49","tailwindcss":"^3.4.1","typescript":"^5.3.3"},"engines":{"node":"24.x"},"name":"forevermemoirs-site","private":true,"scripts":{"build":"next build","db:generate":"drizzle-kit generate","db:push":"drizzle-kit push","dev":"next dev","lint":"next lint","start":"next start"},"version":"2.0.0"}
+{
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "drizzle-orm": "^0.45.2",
+    "next": "^16.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "minimist": "^1.2.8"
+  },
+  "description": "ForeverMemoirs 2.0 \u2014 No life story should go untold.",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.20",
+    "drizzle-kit": "^0.31.10",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "@types/minimist": "^1.2.5"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "name": "forevermemoirs-site",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "foremem": "tsx scripts/foremem.ts"
+  },
+  "version": "2.0.0",
+  "bin": {
+    "foremem": "./bin/foremem.js"
+  }
+}
