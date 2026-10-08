@@ -1,11 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 
 export function CinematicShowcase() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   return (
     <div className="relative rounded-3xl border border-gold-500/20 bg-gradient-to-b from-ink-900/90 to-ink-950 p-6 sm:p-10 overflow-hidden shadow-2xl">
       {/* Glow backdrop */}
@@ -40,24 +37,7 @@ export function CinematicShowcase() {
               </span>
             </div>
 
-            {/* Play Button Interactive Element */}
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              aria-label={isPlaying ? "Pause documentary preview" : "Play documentary preview"}
-              className="absolute inset-0 flex items-center justify-center m-auto h-16 w-16 rounded-full border border-gold-400 bg-ink-950/70 text-gold-300 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-gold-500 hover:text-ink-950 shadow-2xl"
-            >
-              {isPlaying ? (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              )}
-            </button>
-
-            {/* Bottom Caption & Audio Wave */}
+            {/* Bottom Caption */}
             <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-end justify-between gap-3 pointer-events-none">
               <div className="min-w-0">
                 <p className="font-serif text-xs sm:text-base text-parchment-100 font-semibold drop-shadow-md truncate">
@@ -65,17 +45,7 @@ export function CinematicShowcase() {
                 </p>
                 <p className="hidden sm:block text-xs text-gold-300/80">Produced remotely via guided archival session</p>
               </div>
-              <div className="hidden sm:flex items-center gap-1 shrink-0">
-                {[40, 75, 55, 90, 65, 30, 85, 45, 95, 60].map((h, i) => (
-                  <span
-                    key={i}
-                    className={`w-1 rounded-full bg-gold-400 transition-all duration-300 ${
-                      isPlaying ? "animate-pulse" : "opacity-40"
-                    }`}
-                    style={{ height: `${h * 0.25}px` }}
-                  />
-                ))}
-              </div>
+
             </div>
           </div>
         </div>
