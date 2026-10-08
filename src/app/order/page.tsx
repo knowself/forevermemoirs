@@ -102,6 +102,13 @@ function OrderContent() {
       tier: selectedTier,
       notes: formData.get("notes"),
       fileCount: fileCount,
+      // Legal consent flags — Launch Document Section B items 8 & 9. The
+      // checkboxes above are `required`, so reaching this point means the
+      // customer explicitly agreed. These flags are sent so the API can log
+      // them; see the TODO in src/app/api/order/route.ts about persisting
+      // them as proper columns.
+      agreedToTerms: formData.get("agreedToTerms") === "on",
+      confirmedPhotoRights: formData.get("confirmedPhotoRights") === "on",
     };
 
     try {
@@ -306,6 +313,57 @@ function OrderContent() {
                 placeholder="Tell us about the people pictured, approximate decade (e.g. 1940s), damage notes (crease across grandfather's forehead, faded sepia), or any specific instructions..."
                 className="w-full rounded-xl border border-white/15 bg-ink-900/80 px-4 py-3 text-sm text-parchment-100 placeholder:text-parchment-200/30 focus:border-gold-400 focus:outline-none focus:ring-1 focus:ring-gold-400 leading-relaxed"
               />
+            </div>
+
+            {/* Step 5: Legal consent — Launch Document Section B items 8 & 9.
+                WHY THESE CHECKBOXES EXIST (read before removing or restyling):
+                The Terms of Service (/terms) are only enforceable if the customer
+                explicitly agrees to them at order time — this is "clickwrap"
+                consent, and it is what makes the photo-rights warranty
+                (Terms Section 2: customer warrants they own the photo) binding.
+                Checkbox 1 = agreement to Terms + Privacy Policy (item 8).
+                Checkbox 2 = photo ownership/rights warranty (item 9) — the
+                copyright shield. Without it, the business is liable for
+                restoring photos the customer had no right to touch.
+                Both are required: native `required` blocks submission until
+                checked. The API route logs both flags; a future schema migration
+                should persist them as columns on the orders table (see the
+                TODO in src/app/api/order/route.ts). */}
+            <div className="space-y-3 pt-2 border-t border-white/5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-gold-300">
+                5. Your Agreement
+              </label>
+              <label className="flex items-start gap-3 cursor-pointer text-xs text-parchment-200/70 leading-relaxed">
+                <input
+                  type="checkbox"
+                  name="agreedToTerms"
+                  required
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-[#d4a017]"
+                />
+                <span>
+                  I agree to the{" "}
+                  <Link href="/terms" target="_blank" className="text-gold-300 hover:underline">
+                    Terms of Service
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy" target="_blank" className="text-gold-300 hover:underline">
+                    Privacy Policy
+                  </Link>
+                  .
+                </span>
+              </label>
+              <label className="flex items-start gap-3 cursor-pointer text-xs text-parchment-200/70 leading-relaxed">
+                <input
+                  type="checkbox"
+                  name="confirmedPhotoRights"
+                  required
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-[#d4a017]"
+                />
+                <span>
+                  I confirm I own these photos or have the right to have them restored
+                  and used in the work I am commissioning.
+                </span>
+              </label>
             </div>
 
             {/* Submit CTA */}

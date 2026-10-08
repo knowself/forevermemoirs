@@ -211,6 +211,12 @@ export function Footer() {
           <p>© {new Date().getFullYear()} ForeverMemoirs LLC. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/about" className="hover:text-gold-300 transition-colors">Origins & Heritage</Link>
+            {/* LEGAL LINKS — Launch Document Section B items 7-8. The privacy
+                policy and terms of service are REQUIRED before the site accepts
+                a single upload. They live at /privacy and /terms. If you add a
+                new page that collects user data, link its policy here too. */}
+            <Link href="/privacy" className="hover:text-gold-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gold-300 transition-colors">Terms of Service</Link>
             <Link href="/order" className="hover:text-gold-300 transition-colors">Start Order</Link>
             <span>Hermosa Beach, CA</span>
           </div>
