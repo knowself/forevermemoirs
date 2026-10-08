@@ -59,16 +59,3 @@ export async function POST(req: Request) {
     );
   }
 }
-
-export async function GET() {
-  try {
-    if (!db) {
-      return NextResponse.json({ orders: [], message: "Database not connected" });
-    }
-    const allOrders = await db.select().from(orders);
-    return NextResponse.json({ orders: allOrders });
-  } catch (error) {
-    console.error("Failed to fetch orders:", error);
-    return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
-  }
-}
