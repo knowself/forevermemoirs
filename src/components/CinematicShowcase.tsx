@@ -37,9 +37,7 @@ export function CinematicShowcase() {
               </span>
             </div>
 
-
-
-            {/* Bottom Caption & Audio Wave */}
+            {/* Bottom Caption */}
             <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-end justify-between gap-3 pointer-events-none">
               <div className="min-w-0">
                 <p className="font-serif text-xs sm:text-base text-parchment-100 font-semibold drop-shadow-md truncate">
