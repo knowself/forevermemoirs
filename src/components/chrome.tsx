@@ -47,6 +47,16 @@ export function Header() {
             Offer Ladder
           </Link>
           <Link
+            href="/gift"
+            className={`hidden md:inline-block transition-colors ${
+              pathname === "/gift"
+                ? "text-gold-300 font-medium"
+                : "text-parchment-200/80 hover:text-gold-300"
+            }`}
+          >
+            Give a Gift
+          </Link>
+          <Link
             href="/about"
             className={`transition-colors ${
               pathname === "/about"

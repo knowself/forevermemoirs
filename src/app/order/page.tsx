@@ -16,6 +16,15 @@ interface TierOption {
 
 const TIERS: TierOption[] = [
   {
+    id: "videopostcard",
+    name: "VideoPostcard",
+    price: "$79",
+    unit: "gift",
+    turnaround: "3 to 5 Days",
+    badge: "The Hello",
+    desc: "60-second musical video postcard from 3 restored family photos.",
+  },
+  {
     id: "rescue",
     name: "Memory Rescue",
     price: "$49",
