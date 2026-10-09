@@ -3,7 +3,15 @@ import { neon } from "@neondatabase/serverless";
 
 // TEMPORARY migration route — adds the photo_keys column. Hit once from the
 // preview deployment, verify, then delete this file before PR review.
+export async function GET() {
+  return run();
+}
+
 export async function POST() {
+  return run();
+}
+
+async function run() {
   const sql = neon(process.env.DATABASE_URL!);
   await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS photo_keys text[]`;
   const cols = await sql`
