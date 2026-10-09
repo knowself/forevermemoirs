@@ -109,9 +109,9 @@ export function Footer() {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo.jpg"
-                alt="ForeverMemoirs"
-                className="h-10 w-10 rounded-full border border-gold-500/40 object-cover"
+                src="/images/logo-symbol.png"
+                alt="ForeverMemoirs film-frame logo"
+                className="h-12 w-12 rounded-lg border border-gold-500/40 object-cover"
               />
               <span className="font-serif text-2xl font-bold tracking-tight text-parchment-100">
                 ForeverMemoirs
