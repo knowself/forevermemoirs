@@ -10,12 +10,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // TODO (Launch Document Section B items 8 & 9): the order form now sends
+    // Policy version in effect — must match the "Effective" date on /terms
+    // and /privacy. Bump this constant whenever either page is revised.
+    const POLICY_VERSION = "2026-10-08";
+
+    // Launch Document Section B items 8 & 9: the order form sends
     // `agreedToTerms` and `confirmedPhotoRights` flags — explicit clickwrap
     // consent to the Terms of Service and the photo-rights warranty. They are
-    // logged below, but a future migration should add them as real columns on
-    // the orders table (drizzle schema) so consent is provable per order, not
-    // just in server logs. Do not launch paid uploads without this.
+    // enforced below and persisted per order (FM Door item 4) so consent is
+    // provable from the database, not just server logs.
     const { agreedToTerms, confirmedPhotoRights } = body ?? {};
     if (!agreedToTerms || !confirmedPhotoRights) {
       return NextResponse.json(
@@ -23,6 +26,7 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+    const consentAt = new Date();
 
     console.log("New ForeverMemoirs order received:", { name, email, tier, notes, agreedToTerms, confirmedPhotoRights });
 
@@ -37,6 +41,12 @@ export async function POST(req: Request) {
           tier: String(tier),
           notes: notes ? String(notes).trim() : null,
           status: "new",
+          agreedToTerms: true,
+          agreedToTermsAt: consentAt,
+          termsVersion: POLICY_VERSION,
+          confirmedPhotoRights: true,
+          confirmedPhotoRightsAt: consentAt,
+          photoRightsVersion: POLICY_VERSION,
         })
         .returning();
 
