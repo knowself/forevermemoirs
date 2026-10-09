@@ -49,3 +49,13 @@ foremem restore in.jpg out.jpg   # restore a photo with the photo-lab
 python3 -m venv photo-lab/venv
 photo-lab/venv/bin/pip install -r photo-lab/requirements.txt  # see photo-lab/README.md
 ```
+
+## Milestones
+
+### October 9, 2026 — launch hardening
+- **Consent persistence (#4):** orders now store `agreed_to_terms` and `confirmed_photo_rights` with timestamps and policy version (`2026-10-08`). Both checkboxes are required before an order submits.
+- **Apple touch icon (#6):** renamed to the filename Next.js actually serves, so iOS devices pick up the icon.
+- **Brand rollout (#7, #8, #9):** the new film-frame logo is live in the nav (large), the footer, and the homepage CTA — the old circular badge is gone everywhere.
+- **Location (#7):** current location is Finley, California across the site; Hermosa Beach stays in the origin story on About ("Est. Hermosa Beach, CA").
+- **Privacy contact (#10):** the privacy page now points to `joe@forevermemoirs.com` — mailbox verified live (MX records + test email).
+- **Secure photo uploads (#11):** the order form uploads image bytes straight to Cloudflare R2 (`forevermemoirs-uploads` bucket) via presigned PUT URLs — files never pass through our servers. R2 object keys are stored per order (`photo_keys`). Type-checked (JPG/PNG/WebP/TIFF/HEIC), 50MB max, with upload progress and a metadata-only fallback. Verified end to end on production.
