@@ -44,7 +44,7 @@ export function RestorationPipeline() {
           </h2>
           <p className="text-sm text-parchment-200/70 max-w-2xl mx-auto">
             Traditional restorers take 2 weeks and charge $250+. Generic AI apps distort faces into cartoon mannequins.
-            Our Hermosa Beach pipeline solves both.
+            Our pipeline solves both.
           </p>
         </div>
 

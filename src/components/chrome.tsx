@@ -25,27 +25,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="group flex items-center gap-3.5">
-          <div className="relative overflow-hidden rounded-full border border-gold-500/40 p-0.5 shadow-md shadow-gold-500/10 transition-transform duration-300 group-hover:scale-105">
-            <img
-              src="/images/logo.jpg"
-              alt="ForeverMemoirs"
-              className="h-9 w-9 rounded-full object-cover"
-            />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-xl tracking-tight text-parchment-100 font-bold group-hover:text-gold-300 transition-colors">
-                ForeverMemoirs
-              </span>
-              <span className="hidden sm:inline-block rounded-full bg-gold-500/15 border border-gold-500/30 px-2 py-0.5 text-[10px] font-medium tracking-widest uppercase text-gold-300">
-                2.0
-              </span>
-            </div>
-            <span className="hidden min-[420px]:block text-[10px] uppercase tracking-widest text-parchment-200/50">
-              Hermosa Beach, CA • Est. 2020
-            </span>
-          </div>
+        <Link href="/" className="group flex items-center py-1">
+          <img
+            src="/images/logo-full.png"
+            alt="ForeverMemoirs"
+            className="h-16 w-16 md:h-20 md:w-20 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+          />
         </Link>
 
         <nav className="flex items-center gap-3 sm:gap-8 text-sm">
@@ -124,9 +109,9 @@ export function Footer() {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo.jpg"
-                alt="ForeverMemoirs"
-                className="h-10 w-10 rounded-full border border-gold-500/40 object-cover"
+                src="/images/logo-symbol.png"
+                alt="ForeverMemoirs film-frame logo"
+                className="h-12 w-12 rounded-lg border border-gold-500/40 object-cover"
               />
               <span className="font-serif text-2xl font-bold tracking-tight text-parchment-100">
                 ForeverMemoirs
@@ -141,7 +126,7 @@ export function Footer() {
             </p>
             <div className="pt-2 flex items-center gap-2 text-xs text-parchment-200/50">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Hermosa Beach, California • Remote Worldwide</span>
+              <span>Finley, California • Remote Worldwide</span>
             </div>
           </div>
 
@@ -218,7 +203,7 @@ export function Footer() {
             <Link href="/privacy" className="hover:text-gold-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-300 transition-colors">Terms of Service</Link>
             <Link href="/order" className="hover:text-gold-300 transition-colors">Start Order</Link>
-            <span>Hermosa Beach, CA</span>
+            <span>Finley, CA</span>
           </div>
         </div>
       </div>
