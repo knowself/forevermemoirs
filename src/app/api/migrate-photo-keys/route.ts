@@ -12,10 +12,17 @@ export async function POST() {
 }
 
 async function run() {
-  const sql = neon(process.env.DATABASE_URL!);
-  await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS photo_keys text[]`;
-  const cols = await sql`
-    SELECT column_name FROM information_schema.columns
-    WHERE table_name = 'orders' AND column_name = 'photo_keys'`;
-  return NextResponse.json({ ok: true, photo_keys: cols.length > 0 });
+  try {
+    if (!process.env.DATABASE_URL) {
+      return NextResponse.json({ ok: false, error: "DATABASE_URL is not set on this deployment" }, { status: 500 });
+    }
+    const sql = neon(process.env.DATABASE_URL);
+    await sql`ALTER TABLE orders ADD COLUMN IF NOT EXISTS photo_keys text[]`;
+    const cols = await sql`
+      SELECT column_name FROM information_schema.columns
+      WHERE table_name = 'orders' AND column_name = 'photo_keys'`;
+    return NextResponse.json({ ok: true, photo_keys: cols.length > 0 });
+  } catch (e: any) {
+    return NextResponse.json({ ok: false, error: String(e?.message || e) }, { status: 500 });
+  }
 }
