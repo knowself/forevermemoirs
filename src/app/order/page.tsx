@@ -69,6 +69,8 @@ function OrderContent() {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [previewImages, setPreviewImages] = useState<string[]>([]);
   const [fileCount, setFileCount] = useState<number>(0);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [uploadProgress, setUploadProgress] = useState<string | null>(null);
 
   useEffect(() => {
     const tierParam = searchParams.get("tier");
@@ -83,6 +85,7 @@ function OrderContent() {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
+    setSelectedFiles(Array.from(files));
     setFileCount(files.length);
     const urls: string[] = [];
     const maxPreviews = Math.min(files.length, 3);
@@ -92,16 +95,74 @@ function OrderContent() {
     setPreviewImages(urls);
   }
 
+  // Uploads each file straight to R2 via a presigned URL. Returns the
+  // storage keys, [] when uploads aren't configured yet (metadata-only
+  // mode), or null when an upload failed and the order should not submit.
+  async function uploadFiles(files: File[]): Promise<string[] | null> {
+    const keys: string[] = [];
+    for (let i = 0; i < files.length; i++) {
+      const f = files[i];
+      setUploadProgress(`Uploading photo ${i + 1} of ${files.length}\u2026`);
+      let presign: Response;
+      try {
+        presign = await fetch("/api/upload-url", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ filename: f.name, contentType: f.type, size: f.size }),
+        });
+      } catch {
+        setUploadProgress(null);
+        return null;
+      }
+      if (presign.status === 503) {
+        // Storage not configured yet — fall back to metadata-only.
+        setUploadProgress(null);
+        return [];
+      }
+      if (!presign.ok) {
+        setUploadProgress(null);
+        return null;
+      }
+      const { uploadUrl, key } = await presign.json();
+      try {
+        const put = await fetch(uploadUrl, {
+          method: "PUT",
+          body: f,
+          headers: { "Content-Type": f.type },
+        });
+        if (!put.ok) {
+          setUploadProgress(null);
+          return null;
+        }
+      } catch {
+        setUploadProgress(null);
+        return null;
+      }
+      keys.push(key);
+    }
+    setUploadProgress(null);
+    return keys;
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
     const formData = new FormData(e.currentTarget);
+
+    // Secure upload first: photo bytes go straight to R2, never through us.
+    const photoKeys = await uploadFiles(selectedFiles);
+    if (photoKeys === null) {
+      setStatus("error");
+      return;
+    }
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       tier: selectedTier,
       notes: formData.get("notes"),
       fileCount: fileCount,
+      photoKeys,
       // Legal consent flags — Launch Document Section B items 8 & 9. The
       // checkboxes above are `required`, so reaching this point means the
       // customer explicitly agreed. These flags are sent so the API can log
@@ -253,7 +314,7 @@ function OrderContent() {
             <div className="space-y-2 pt-2 border-t border-white/5">
               <div className="flex items-center justify-between">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-gold-300">
-                  3. Upload Photo (Optional Now)
+                  3. Upload Your Photos
                 </label>
                 <span className="text-[11px] text-parchment-200/40">You can also email scans later</span>
               </div>
@@ -376,9 +437,16 @@ function OrderContent() {
                 {status === "sending" ? "Submitting Commission..." : `Commission ${activeTier.name} — ${activeTier.price}`}
               </button>
 
+              {uploadProgress && (
+                <p className="text-center text-xs text-gold-300 animate-pulse">
+                  {uploadProgress}
+                </p>
+              )}
+
               {status === "error" && (
                 <p className="text-center text-xs text-red-400">
-                  There was an issue submitting your request. Please try again or reach out to support.
+                  There was an issue submitting your request &mdash; your photos may not have
+                  uploaded. Please try again or reach out to support.
                 </p>
               )}
 
