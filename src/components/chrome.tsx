@@ -26,11 +26,11 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
         <Link href="/" className="group flex items-center gap-3.5">
-          <div className="relative overflow-hidden rounded-full border border-gold-500/40 p-0.5 shadow-md shadow-gold-500/10 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative overflow-hidden rounded-lg border border-gold-500/40 p-0.5 shadow-md shadow-gold-500/10 transition-transform duration-300 group-hover:scale-105">
             <img
-              src="/images/logo.jpg"
-              alt="ForeverMemoirs"
-              className="h-9 w-9 rounded-full object-cover"
+              src="/images/logo-symbol.png"
+              alt="ForeverMemoirs film-frame logo"
+              className="h-10 w-10 rounded-md object-cover"
             />
           </div>
           <div className="flex flex-col">
