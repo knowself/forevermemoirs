@@ -29,7 +29,7 @@ export function Header() {
           <img
             src="/images/logo-full.png"
             alt="ForeverMemoirs"
-            className="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+            className="h-16 w-16 md:h-20 md:w-20 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           />
         </Link>
 
