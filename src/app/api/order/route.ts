@@ -4,7 +4,7 @@ import { db, orders } from "@/lib/db";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, tier, notes } = body ?? {};
+    const { name, email, tier, notes, photoKeys } = body ?? {};
 
     if (!name || !email || !tier) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -41,6 +41,7 @@ export async function POST(req: Request) {
           tier: String(tier),
           notes: notes ? String(notes).trim() : null,
           status: "new",
+          photoKeys: Array.isArray(photoKeys) ? photoKeys.map((k) => String(k)) : [],
           agreedToTerms: true,
           agreedToTermsAt: consentAt,
           termsVersion: POLICY_VERSION,
