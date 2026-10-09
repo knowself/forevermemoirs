@@ -20,4 +20,8 @@ export const orders = pgTable("orders", {
   confirmedPhotoRights: boolean("confirmed_photo_rights").notNull().default(false),
   confirmedPhotoRightsAt: timestamp("confirmed_photo_rights_at"),
   photoRightsVersion: text("photo_rights_version"),
+  // --- Uploaded photo keys (secure uploads) ---
+  // R2 object keys for the customer's images, e.g. "uploads/<uuid>-scan.jpg".
+  // Image bytes live in Cloudflare R2; the database holds only the keys.
+  photoKeys: text("photo_keys").array(),
 });
