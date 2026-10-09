@@ -126,7 +126,7 @@ export function Footer() {
             </p>
             <div className="pt-2 flex items-center gap-2 text-xs text-parchment-200/50">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Hermosa Beach, California • Remote Worldwide</span>
+              <span>Finley, California • Remote Worldwide</span>
             </div>
           </div>
 
@@ -203,7 +203,7 @@ export function Footer() {
             <Link href="/privacy" className="hover:text-gold-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-300 transition-colors">Terms of Service</Link>
             <Link href="/order" className="hover:text-gold-300 transition-colors">Start Order</Link>
-            <span>Hermosa Beach, CA</span>
+            <span>Finley, CA</span>
           </div>
         </div>
       </div>
