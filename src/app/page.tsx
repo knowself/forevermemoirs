@@ -116,9 +116,9 @@ export default function Home() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-radial-gold opacity-25 pointer-events-none" />
           
           <img
-            src="/images/logo.jpg"
+            src="/images/logo-full.png"
             alt="ForeverMemoirs"
-            className="mx-auto h-16 w-16 rounded-full border border-gold-500/40 object-cover shadow-lg mb-6"
+            className="mx-auto h-20 w-20 rounded-xl object-contain shadow-lg mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           />
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-parchment-50 max-w-2xl mx-auto leading-tight">
