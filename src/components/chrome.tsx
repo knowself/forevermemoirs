@@ -107,15 +107,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/5">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <img
-                src="/images/logo-symbol.png"
-                alt="ForeverMemoirs film-frame logo"
-                className="h-12 w-12 rounded-lg border border-gold-500/40 object-cover"
+                src="/images/logo-full.png"
+                alt="ForeverMemoirs"
+                className="h-16 w-16 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
               />
-              <span className="font-serif text-2xl font-bold tracking-tight text-parchment-100">
-                ForeverMemoirs
-              </span>
             </div>
             <p className="font-serif italic text-gold-300/90 text-lg">
               &ldquo;No life story should go untold.&rdquo;
