@@ -149,8 +149,8 @@ export default function Privacy() {
             <p>
               You can ask us to delete everything we hold about you — photos, restorations, order
               details — at any time, for any reason. Email{" "}
-              <a href="mailto:privacy@forevermemoirs.com" className="text-gold-300 hover:underline">
-                privacy@forevermemoirs.com
+              <a href="mailto:joe@forevermemoirs.com" className="text-gold-300 hover:underline">
+                joe@forevermemoirs.com
               </a>{" "}
               with the subject &ldquo;Delete my data,&rdquo; and the founder personally carries it out
               within 14 days and confirms back to you in writing.
