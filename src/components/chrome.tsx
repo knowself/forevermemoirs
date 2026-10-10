@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +57,87 @@ export function Header() {
           >
             Give a Gift
           </Link>
+          {/* Services dropdown — families + business sub-menu */}
+          <div
+            className="relative hidden md:block"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              type="button"
+              aria-expanded={servicesOpen}
+              onClick={() => setServicesOpen((v) => !v)}
+              className={`inline-flex items-center gap-1 transition-colors ${
+                pathname.startsWith("/business")
+                  ? "text-gold-300 font-medium"
+                  : "text-parchment-200/80 hover:text-gold-300"
+              }`}
+            >
+              Services
+              <svg
+                className={`w-3 h-3 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {servicesOpen && (
+              <div className="absolute right-0 top-full pt-3 w-72">
+                <div className="rounded-2xl border border-gold-500/25 bg-ink-950/95 backdrop-blur-md shadow-2xl shadow-black/60 p-3 space-y-4">
+                  <div>
+                    <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-widest text-gold-400/70">
+                      For Families
+                    </p>
+                    <Link
+                      href="/order"
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded-xl px-3 py-2 text-parchment-200/85 hover:bg-white/5 hover:text-gold-300 transition-colors"
+                    >
+                      Photo Restoration
+                    </Link>
+                    <Link
+                      href="/#tiers"
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded-xl px-3 py-2 text-parchment-200/85 hover:bg-white/5 hover:text-gold-300 transition-colors"
+                    >
+                      Films &amp; Tributes
+                    </Link>
+                    <Link
+                      href="/gift"
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded-xl px-3 py-2 text-parchment-200/85 hover:bg-white/5 hover:text-gold-300 transition-colors"
+                    >
+                      Give a Gift
+                    </Link>
+                  </div>
+                  <div className="border-t border-white/5 pt-3">
+                    <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-widest text-gold-400/70">
+                      For Business
+                    </p>
+                    <Link
+                      href="/business/funeral-homes"
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded-xl px-3 py-2 text-parchment-200/85 hover:bg-white/5 hover:text-gold-300 transition-colors"
+                    >
+                      Funeral Home Services
+                      <span className="block text-xs text-parchment-200/50 font-normal">
+                        Memorial tribute films for the families you serve
+                      </span>
+                    </Link>
+                    <Link
+                      href="/business"
+                      onClick={() => setServicesOpen(false)}
+                      className="block rounded-xl px-3 py-2 text-sm text-parchment-200/60 hover:bg-white/5 hover:text-gold-300 transition-colors"
+                    >
+                      All business services →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <Link
             href="/about"
             className={`transition-colors ${
@@ -209,6 +291,7 @@ export function Footer() {
                 new page that collects user data, link its policy here too. */}
             <Link href="/privacy" className="hover:text-gold-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-300 transition-colors">Terms of Service</Link>
+            <Link href="/business" className="hover:text-gold-300 transition-colors">For Business</Link>
             <Link href="/order" className="hover:text-gold-300 transition-colors">Start Order</Link>
             <span>Finley, CA</span>
           </div>
