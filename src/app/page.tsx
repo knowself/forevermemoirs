@@ -4,6 +4,7 @@ import { OfferLadder } from "../components/OfferLadder";
 import { CinematicShowcase } from "../components/CinematicShowcase";
 import { RestorationPipeline } from "../components/RestorationPipeline";
 import { TrustAndFAQ } from "../components/TrustAndFAQ";
+import { WaitlistForm } from "../components/WaitlistForm";
 
 export default function Home() {
   return (
@@ -109,6 +110,26 @@ export default function Home() {
 
       {/* Trust & FAQ */}
       <TrustAndFAQ />
+
+      {/* Holiday Gift Waitlist */}
+      <section className="relative mx-auto max-w-3xl px-6 py-16 text-center z-10">
+        <div className="rounded-3xl border border-gold-500/25 bg-ink-950/70 p-8 sm:p-12 shadow-xl">
+          <span className="text-xs uppercase tracking-widest text-gold-300 font-semibold">
+            Coming This Holiday Season
+          </span>
+          <h2 className="mt-3 font-serif text-3xl sm:text-4xl font-bold text-parchment-100">
+            Gift certificates are coming.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-parchment-200/70 leading-relaxed">
+            Give the people you love a film of the people they love. Join the
+            list and you&apos;ll be the first to know when holiday gift
+            certificates open.
+          </p>
+          <div className="mx-auto mt-8 max-w-md">
+            <WaitlistForm source="homepage" />
+          </div>
+        </div>
+      </section>
 
       {/* Final Call to Action */}
       <section className="relative mx-auto max-w-5xl px-6 py-20 text-center z-10">
