@@ -3,14 +3,45 @@ import Link from "next/link";
 /* Funeral Home Services — B2B partner page.
  *
  * Tone rule: grief work demands flawless sensitivity. Dignified, plain,
- * no hype, no money-back slogans, no manufactured urgency. Pricing and
- * referral terms are negotiated in person — they do not belong on this page.
+ * no hype, no money-back slogans, no manufactured urgency.
  */
+
+const tiers = [
+  {
+    name: "The 3-Minute Tribute",
+    price: "$397",
+    tagline: "A cherished moment — the essence of a life, beautifully told.",
+    includes: [
+      "Up to 30 restored photographs",
+      "Music and title cards with the loved one's name and dates",
+      "Priority turnaround — typically 48 to 72 hours",
+      "Private streaming link the family can share and keep",
+    ],
+  },
+  {
+    name: "The 15-Minute Tribute",
+    price: "$797",
+    tagline: "The fuller story — chapters of a life, told at an unhurried pace.",
+    includes: [
+      "Up to 100 restored photographs",
+      "Eulogy and service audio woven into the film",
+      "Chaptered life sections with multiple music selections",
+      "5 to 7 day turnaround",
+      "Private streaming link plus a downloadable keepsake file",
+    ],
+  },
+];
+
+const addOns = [
+  "24-hour rush production",
+  "Extended photo restoration beyond the included set",
+  "Keepsake USB drives for family members",
+];
 
 const steps = [
   {
     title: "Offer the tribute",
-    body: "Present the Memorial Tribute Film as your premium memorial option to the family — the step above the standard slideshow.",
+    body: "Present the Memorial Tribute Film as your premium memorial option to the family — the step above the standard slideshow. Two lengths to fit every family and budget.",
   },
   {
     title: "The family uploads photos",
@@ -18,19 +49,12 @@ const steps = [
   },
   {
     title: "We produce the film",
-    body: "Restored photographs woven into a three-minute memorial with music and title cards — priority turnaround, typically 48 to 72 hours.",
+    body: "Restored photographs woven into a memorial film with music and title cards — at the priority turnaround of the chosen option.",
   },
   {
     title: "You present it",
     body: "You receive a private streaming link to share with the family — ready for the service and for keepsakes afterward.",
   },
-];
-
-const includes = [
-  "Three-minute memorial tribute film",
-  "Photo restoration by human-checked craft — damage and fading repaired, faces kept genuine",
-  "Music and title cards with the loved one's name and dates",
-  "Private streaming link the family can share and keep",
 ];
 
 export default function FuneralHomes() {
@@ -49,23 +73,51 @@ export default function FuneralHomes() {
           </h1>
           <p className="text-lg text-parchment-200/70 max-w-2xl mx-auto">
             A premium tribute film for the families you serve — restored
-            photographs woven into a three-minute memorial, delivered in days.
+            photographs woven into a memorial, delivered in days.
           </p>
         </div>
 
-        {/* What families receive */}
-        <div className="rounded-3xl border border-white/10 bg-ink-950/80 p-8 sm:p-12 space-y-6">
-          <h2 className="font-serif text-2xl font-bold text-parchment-100">
-            What the family receives
+        {/* Tribute options */}
+        <div className="space-y-6">
+          <h2 className="font-serif text-2xl font-bold text-parchment-100 text-center">
+            Two tribute options
           </h2>
-          <ul className="space-y-3 text-parchment-200/80 leading-relaxed">
-            {includes.map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="text-gold-400 mt-1">✦</span>
-                <span>{item}</span>
-              </li>
+          <div className="grid gap-6 md:grid-cols-2">
+            {tiers.map((tier) => (
+              <div
+                key={tier.name}
+                className="rounded-3xl border border-white/10 bg-ink-950/80 p-8 space-y-5 flex flex-col"
+              >
+                <div>
+                  <h3 className="font-serif text-2xl font-bold text-parchment-100">
+                    {tier.name}
+                  </h3>
+                  <p className="font-serif italic text-gold-300/90 mt-1">
+                    {tier.tagline}
+                  </p>
+                </div>
+                <p className="font-serif text-4xl font-bold text-gold-300">
+                  {tier.price}
+                </p>
+                <ul className="space-y-3 text-parchment-200/80 leading-relaxed text-sm flex-1">
+                  {tier.includes.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="text-gold-400 mt-0.5">✦</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-ink-950/60 p-6 sm:p-8 text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-gold-400/80">
+              Also available
+            </p>
+            <p className="mt-2 text-parchment-200/70 text-sm">
+              {addOns.join("  •  ")}
+            </p>
+          </div>
         </div>
 
         {/* How partnering works */}
