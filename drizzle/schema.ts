@@ -55,3 +55,19 @@ export const giftCertificates = pgTable("gift_certificates", {
   redeemedAt: timestamp("redeemed_at"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
+
+// --- Holiday gift waitlist ---
+// Email capture for the Q4 gift-certificate launch ("coming this holiday
+// season"). Signups come from the homepage section, the /waitlist page
+// (Instagram link-in-bio target), or Instagram directly. Dedupe on email;
+// re-submits return success without leaking whether the address existed.
+// Run `npm run db:push` with DATABASE_URL set (Neon) to create this table
+// after merging.
+export const waitlist = pgTable("waitlist", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  email: text("email").notNull().unique(),
+  name: text("name"),
+  source: text("source"), // 'homepage' | 'waitlist-page' | 'instagram'
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+

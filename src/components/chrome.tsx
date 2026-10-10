@@ -200,7 +200,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment-200/40">
-          <p>© {new Date().getFullYear()} ForeverMemoirs LLC. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ForeverMemoirs. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/about" className="hover:text-gold-300 transition-colors">Origins & Heritage</Link>
             {/* LEGAL LINKS — Launch Document Section B items 7-8. The privacy

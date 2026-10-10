@@ -52,7 +52,8 @@ export default function Terms() {
             <h2 className="font-serif text-2xl font-bold text-parchment-100">1. What we do</h2>
             <p>
               ForeverMemoirs provides AI-assisted photo restoration, video tributes, memoir films,
-              biographies, and related archival services. Every restoration passes human review before
+              biographies, and related archival services. ForeverMemoirs is a sole proprietorship
+              operating in California. Every restoration passes human review before
               delivery — AI does the heavy lifting, a person makes sure your family still looks like
               your family.
             </p>
@@ -117,8 +118,9 @@ export default function Terms() {
           <section className="space-y-3">
             <h2 className="font-serif text-2xl font-bold text-parchment-100">6. Payment</h2>
             <p>
-              Payment is processed securely through our payment provider. Card numbers never touch our
-              servers. No payment is taken until we have confirmed we can work with your photos.
+              When payments launch, payment will be processed securely through our payment provider.
+              Card numbers never touch our servers. We take no payments yet — no payment is taken
+              until we have confirmed we can work with your photos.
             </p>
           </section>
 
