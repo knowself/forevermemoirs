@@ -75,6 +75,7 @@ export default function Privacy() {
               <li><strong className="text-parchment-100">Your name and email address</strong> — so we can deliver your order and talk to you about it.</li>
               <li><strong className="text-parchment-100">The photos you send us</strong> — the whole point. Originals and the restorations we produce from them.</li>
               <li><strong className="text-parchment-100">Order details</strong> — which package you chose, your notes about the photos, and payment records.</li>
+              <li><strong className="text-parchment-100">Waitlist signups</strong> — if you join our holiday gift-certificate waitlist, we keep your email address (and your name, if you give it) so we can tell you when certificates launch.</li>
             </ul>
             <p>
               That is the complete list. We do not collect your location, your browsing history,
@@ -89,6 +90,12 @@ export default function Privacy() {
               To perform the restoration or film work you ordered. One purpose. We do not use your
               information for advertising, we do not sell it, and we do not share it with data brokers.
             </p>
+            <p>
+              If you join our gift waitlist, we use your email for one more purpose: to send you news
+              about the gift-certificate launch. Launch news only — no newsletters, no marketing blasts.
+              Every waitlist email includes an unsubscribe link, and unsubscribing deletes your waitlist
+              signup.
+            </p>
           </section>
 
           {/* WHO SEES IT — named roles only. "Our team" is not an answer.
@@ -97,8 +104,8 @@ export default function Privacy() {
             <h2 className="font-serif text-2xl font-bold text-parchment-100">Who sees your photos</h2>
             <ul className="space-y-2 pl-4 border-l border-gold-500/30 list-none">
               <li><strong className="text-parchment-100">The founder</strong> — who runs every order personally at this stage.</li>
-              <li><strong className="text-parchment-100">Contracted restorers and editors</strong> — only when hired for your order, only the files they need, and only under a signed confidentiality agreement.</li>
-              <li><strong className="text-parchment-100">Our payment processor (Stripe)</strong> — sees payment details, never your photos.</li>
+              <li><strong className="text-parchment-100">Contracted restorers and editors</strong> — only when hired for your order, only the files they need, and only under a signed <Link href="/nda" className="text-gold-300 hover:underline">confidentiality agreement</Link>.</li>
+              <li><strong className="text-parchment-100">Our payment processor (Stripe)</strong> — when payments launch, it will see payment details, never your photos. We take no payments yet.</li>
             </ul>
             <p>
               Nobody else. Not advertisers, not AI companies, not the public. Every person added
