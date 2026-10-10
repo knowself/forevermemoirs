@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, uuid, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid, boolean, integer } from "drizzle-orm/pg-core";
 
 // Run `npm run db:push` with DATABASE_URL set (Neon) to create this table.
 export const orders = pgTable("orders", {
@@ -26,6 +26,36 @@ export const orders = pgTable("orders", {
   photoKeys: text("photo_keys").array(),
 });
 
+// --- Gift certificates (Q4 gifting) ---
+// A buyer purchases a tier as a gift; the recipient redeems the code after
+// the holidays (or whenever they're ready) and the redemption creates a
+// normal order row. Payment is NOT wired yet — certificates are created with
+// status "pending_payment" and a Stripe checkout/webhook will flip them to
+// "issued" (see POST /api/gift). Until then this table doubles as the
+// committed-buyer lead list for launch day.
+export const giftCertificates = pgTable("gift_certificates", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  // Human-readable code, e.g. "FM-7X2K9P". Unique; shown on the certificate.
+  code: text("code").notNull().unique(),
+  tier: text("tier").notNull(),
+  amountCents: integer("amount_cents").notNull(),
+  buyerName: text("buyer_name").notNull(),
+  buyerEmail: text("buyer_email").notNull(),
+  recipientName: text("recipient_name").notNull(),
+  recipientEmail: text("recipient_email").notNull(),
+  message: text("message"),
+  // When the certificate should be delivered to the recipient. Null = now.
+  deliverAt: timestamp("deliver_at"),
+  // pending_payment -> issued -> redeemed
+  status: text("status").notNull().default("pending_payment"),
+  // Clickwrap consent to the gift purchase terms, same pattern as orders.
+  agreedToTerms: boolean("agreed_to_terms").notNull().default(false),
+  agreedToTermsAt: timestamp("agreed_to_terms_at"),
+  termsVersion: text("terms_version"),
+  redeemedAt: timestamp("redeemed_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
 // --- Holiday gift waitlist ---
 // Email capture for the Q4 gift-certificate launch ("coming this holiday
 // season"). Signups come from the homepage section, the /waitlist page
@@ -40,3 +70,4 @@ export const waitlist = pgTable("waitlist", {
   source: text("source"), // 'homepage' | 'waitlist-page' | 'instagram'
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
+

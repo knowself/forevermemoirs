@@ -19,6 +19,25 @@ interface Tier {
 
 const TIERS_DATA: Tier[] = [
   {
+    id: "videopostcard",
+    name: "VideoPostcard",
+    subtitle: "60-Second Musical Video Postcard",
+    price: "$79",
+    period: "gift",
+    badge: "The Hello",
+    turnaround: "3 to 5 Days",
+    description: "The postcard is the hello. Three cherished photos restored and woven into a 60-second musical video postcard — made to be given.",
+    features: [
+      "3 photographs fully restored & remastered",
+      "60-second musical video postcard",
+      "Original licensed musical score",
+      "Shareable link for family & friends",
+      "Gift-ready digital presentation card",
+      "The perfect hello before the memoir",
+    ],
+    cta: "Send a VideoPostcard ($79)",
+  },
+  {
     id: "rescue",
     name: "Memory Rescue",
     subtitle: "Single Photo Archival Restoration",
@@ -119,7 +138,7 @@ export function OfferLadder() {
   const [filter, setFilter] = useState<"all" | "photos" | "films">("all");
 
   const filteredTiers = TIERS_DATA.filter((tier) => {
-    if (filter === "photos") return tier.id === "rescue" || tier.id === "shoebox";
+    if (filter === "photos") return tier.id === "rescue" || tier.id === "shoebox" || tier.id === "videopostcard";
     if (filter === "films") return tier.id === "memoir" || tier.id === "biography" || tier.id === "lifecharts";
     return true;
   });
@@ -148,7 +167,7 @@ export function OfferLadder() {
                 : "border border-white/10 text-parchment-200/60 hover:text-parchment-100 hover:border-white/20"
             }`}
           >
-            All Packages (5)
+            All Packages (6)
           </button>
           <button
             onClick={() => setFilter("photos")}
@@ -255,6 +274,12 @@ export function OfferLadder() {
               }`}
             >
               {tier.cta}
+            </Link>
+            <Link
+              href={`/gift?tier=${tier.id}`}
+              className="mt-2 w-full text-center text-[11px] font-medium text-gold-300/80 hover:text-gold-300 transition-colors"
+            >
+              🎁 Give this as a gift →
             </Link>
           </div>
         ))}
