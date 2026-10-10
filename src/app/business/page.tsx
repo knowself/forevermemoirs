@@ -31,8 +31,9 @@ export default function Business() {
               Memorial Tribute Films
             </h2>
             <p className="mt-3 text-parchment-200/70 leading-relaxed">
-              A premium three-minute tribute film for the families you serve —
-              restored photographs woven into a memorial, delivered in days.
+              A premium tribute film for the families you serve — two options,
+              a 3-minute tribute and a 15-minute tribute, with restored
+              photographs woven into a memorial, delivered in days.
               Fully remote, zero work for your staff.
             </p>
             <p className="mt-4 text-sm text-gold-300">
