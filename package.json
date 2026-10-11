@@ -12,6 +12,7 @@
   },
   "description": "ForeverMemoirs 2.0 \u2014 No life story should go untold.",
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@types/minimist": "^1.2.5",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.14",
