@@ -71,3 +71,38 @@ export const waitlist = pgTable("waitlist", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+// --- Storykeepers' Corner: email-code verifications ---
+// One row per code request. Codes are single-use and expire after 15 minutes.
+// The `ip` column backs the per-IP hourly rate limit; `attempts` counts wrong
+// guesses (max 5 per code). Rows are deleted when a code is used or replaced.
+// Run `npm run db:push` with DATABASE_URL set (Neon) to create this table
+// after merging.
+export const storykeeperCodes = pgTable("storykeeper_codes", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  email: text("email").notNull(),
+  codeHash: text("code_hash").notNull(),
+  ip: text("ip"),
+  expiresAt: timestamp("expires_at").notNull(),
+  attempts: integer("attempts").notNull().default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// --- Storykeepers' Corner: verified emails (the mailing list) ---
+// Every verified email lands here. `consentedAt` records the moment the
+// visitor checked the explicit opt-in box — it is the provable opt-in proof
+// for future book-launch and guide mailings. Never sold; one-click
+// unsubscribe. Dedupe on email.
+// Run `npm run db:push` with DATABASE_URL set (Neon) to create this table
+// after merging.
+export const storykeeperVerifiedEmails = pgTable(
+  "storykeeper_verified_emails",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    email: text("email").notNull().unique(),
+    verifiedAt: timestamp("verified_at").notNull().defaultNow(),
+    consentedAt: timestamp("consented_at").notNull(),
+    source: text("source").notNull().default("storykeepers-corner"),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+  }
+);
+
