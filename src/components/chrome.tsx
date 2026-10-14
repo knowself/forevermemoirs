@@ -123,16 +123,6 @@ export function Header() {
                     >
                       All business services →
                     </Link>
-                    <Link
-                      href="/business/funeral-homes"
-                      onClick={() => setServicesOpen(false)}
-                      className="block rounded-xl px-3 py-2 text-parchment-200/85 hover:bg-white/5 hover:text-gold-300 transition-colors"
-                    >
-                      Funeral Home Services
-                      <span className="block text-xs text-parchment-200/50 font-normal">
-                        Memorial tribute films for the families you serve
-                      </span>
-                    </Link>
                   </div>
                 </div>
               </div>
