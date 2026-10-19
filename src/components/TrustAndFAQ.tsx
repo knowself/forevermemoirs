@@ -13,7 +13,7 @@ export function TrustAndFAQ() {
     },
     {
       q: "Will AI alter my loved one's actual face or expression?",
-      a: "Never. Generic consumer AI filters often hallucinate features and turn faces into plastic caricatures. We specifically use CodeFormer with strict fidelity weights and run every single frame through human quality control. If an ancestor had a gentle dimple or a unique eyelid fold, it stays intact.",
+      a: "Never. Generic consumer AI filters often hallucinate features and turn faces into plastic caricatures. We specifically use GFPGAN with strict fidelity weights and run every single frame through human quality control. If an ancestor had a gentle dimple or a unique eyelid fold, it stays intact.",
     },
     {
       q: "How does the remote Zoom interview work for Memoir Films?",

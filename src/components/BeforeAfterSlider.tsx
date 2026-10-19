@@ -133,7 +133,7 @@ function PairSlider({ pair }: { pair: Pair }) {
           <div className="rounded-full bg-ink-950/80 px-3 py-1.5 text-[10px] sm:text-[11px] font-medium tracking-wider uppercase text-gold-300 backdrop-blur-md border border-gold-500/40 flex items-center gap-1.5 shadow-lg">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
             <span className="sm:hidden">Restored</span>
-            <span className="hidden sm:inline">Restored Master (CodeFormer + Human QC)</span>
+            <span className="hidden sm:inline">Restored Master (GFPGAN + Human QC)</span>
           </div>
         </div>
 
@@ -201,7 +201,7 @@ export function BeforeAfterSlider() {
         <div className="rounded-xl border border-white/5 bg-ink-900/60 p-3">
           <div className="text-xs text-parchment-200/50 uppercase tracking-widest">Resolution</div>
           <div className="mt-1 font-serif text-lg text-gold-300 font-bold">4K Archival</div>
-          <div className="text-[10px] text-parchment-200/40">Real-ESRGAN + CodeFormer</div>
+          <div className="text-[10px] text-parchment-200/40">Real-ESRGAN + GFPGAN</div>
         </div>
         <div className="rounded-xl border border-white/5 bg-ink-900/60 p-3">
           <div className="text-xs text-parchment-200/50 uppercase tracking-widest">Quality Control</div>

@@ -492,7 +492,7 @@ function OrderContent() {
             <div className="border-t border-white/5 pt-4 space-y-2.5 text-xs text-parchment-200/70">
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400">✓</span>
-                <span>CodeFormer facial preservation check</span>
+                <span>GFPGAN facial preservation check</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400">✓</span>

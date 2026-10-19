@@ -48,7 +48,7 @@ const TIERS_DATA: Tier[] = [
     description: "One cherished family photo brought back from fading, scratches, cracks, or water stains with museum fidelity.",
     features: [
       "1 physical photo or scan restored",
-      "CodeFormer facial fidelity preservation",
+      "GFPGAN facial fidelity preservation",
       "Real-ESRGAN 4K background enhancement",
       "Human Master QC check on facial structure",
       "Full digital print-ready archival master",

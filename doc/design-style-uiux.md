@@ -62,11 +62,11 @@ Metadata & Telemetry ─── Monospace (Timecodes, Turnaround, Model Metrics)
 - **Purpose:** Demonstrates the restoration pipeline on an authentic 1948 grandfather-and-granddaughter portrait with deep creases, fold scars, and water stains.
 - **Interaction:**
   - Mouse click-and-drag and mobile touch swipe across the photograph.
-  - Floating badges (*"Original (Faded & Scratched)"* vs *"Restored Master (CodeFormer + Human QC)"*) dynamically fade depending on handle position.
+  - Floating badges (*"Original (Faded & Scratched)"* vs *"Restored Master (GFPGAN + Human QC)"*) dynamically fade depending on handle position.
   - Vertical champagne gold divider line with center arrow pill handle.
 - **Telemetry Strip:** Four live metrics below the comparison:
   1. *Face Fidelity:* 100% Genuine (Never alters identity)
-  2. *Resolution:* 4K Archival (Real-ESRGAN + CodeFormer)
+  2. *Resolution:* 4K Archival (Real-ESRGAN + GFPGAN)
   3. *Quality Control:* Human Master QC (Verified frame by frame)
   4. *Turnaround:* 48 Hours (Fast digital delivery)
 
@@ -93,7 +93,7 @@ Metadata & Telemetry ─── Monospace (Timecodes, Turnaround, Model Metrics)
 ### 4.4. Restoration Pipeline Walkthrough (`RestorationPipeline.tsx`)
 - **Purpose:** Demystifies the technical process into 5 reassuring steps:
   1. *Capture & Upload (Zero Risk)*
-  2. *Facial Fidelity Engine (CodeFormer)*
+  2. *Facial Fidelity Engine (GFPGAN)*
   3. *Archival Texture Repair (Real-ESRGAN)*
   4. *Human Master QC (Essential)*
   5. *Archival Delivery (48-Hour Turnaround)*
@@ -120,7 +120,7 @@ Metadata & Telemetry ─── Monospace (Timecodes, Turnaround, Model Metrics)
 - **Narrative Arc:** Traces the company's origins from Hermosa Beach, CA (in-person camera crews, $1,375–$9,495, DVDs) to the 2.0 Revival (remote Zoom direction, local AI restoration, accessible $49 entry).
 - **Comparison Table:** Side-by-side contrast between ForeverMemoirs 1.0 (2020) and ForeverMemoirs 2.0 (Today).
 - **The 3 Ethical Pillars:**
-  1. *Never Alter a Face* (Strict CodeFormer fidelity weights).
+  1. *Never Alter a Face* (Strict GFPGAN fidelity weights).
   2. *Archival Client Rights* (Zero public AI training).
   3. *Human Master QC* (Every restoration verified by an experienced editor).
 

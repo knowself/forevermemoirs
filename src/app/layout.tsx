@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "photo restoration",
     "family memoir film",
     "personal documentary",
-    "CodeFormer restoration",
+    "GFPGAN restoration",
     "vintage photo repair",
     "family history archive",
     "Hermosa Beach",

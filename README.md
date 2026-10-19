@@ -25,12 +25,12 @@ The site lives at the repo root, the way our other projects are arranged:
 - `bin/` — the `foremem` executable
 - `drizzle/` — database schema (Neon/PostgreSQL)
 - `doc/` — offer ladder and production notes
-- `photo-lab/` — open-source photo restoration pipeline (GFPGAN + CodeFormer + Real-ESRGAN). Tested: ~30s–4min per photo on CPU, $0 marginal cost. Human QC on every photo before delivery — AI must never change a face.
+- `photo-lab/` — open-source photo restoration pipeline (GFPGAN + GFPGAN + Real-ESRGAN). Tested: ~30s–4min per photo on CPU, $0 marginal cost. Human QC on every photo before delivery — AI must never change a face.
 
 ## The pipeline
 
 ```
-Old photo in → CodeFormer (faces, fidelity-first) → Real-ESRGAN (background)
+Old photo in → GFPGAN (faces, fidelity-first) → Real-ESRGAN (background)
 → human QC → restored photo out → optional video tribute with original music
 ```
 

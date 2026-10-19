@@ -75,7 +75,7 @@ export default function Home() {
             Interactive Comparison
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-parchment-100">
-            See the CodeFormer Restoration in Action
+            See the GFPGAN Restoration in Action
           </h2>
           <p className="text-sm text-parchment-200/70">
             Drag the gold divider to inspect how an 80-year-old scratched, creased family print is restored to archival brilliance without ever altering the subject&apos;s face.

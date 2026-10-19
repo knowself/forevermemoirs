@@ -281,6 +281,7 @@ export function Footer() {
                 new page that collects user data, link its policy here too. */}
             <Link href="/privacy" className="hover:text-gold-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-300 transition-colors">Terms of Service</Link>
+            <Link href="/glossary" className="hover:text-gold-300 transition-colors">Glossary</Link>
             <Link href="/business" className="hover:text-gold-300 transition-colors">For Business</Link>
             <Link href="/order" className="hover:text-gold-300 transition-colors">Start Order</Link>
             <span>Finley, CA</span>

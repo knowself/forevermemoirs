@@ -9,7 +9,7 @@ export function RestorationPipeline() {
     {
       num: "02",
       title: "Facial Fidelity Engine",
-      badge: "CodeFormer",
+      badge: "GFPGAN",
       desc: "Our neural network reconstructs facial micro-details and lost expressions using fidelity-first algorithms — preserving the exact soul of the person.",
     },
     {

@@ -67,7 +67,7 @@ export default function About() {
               <li className="flex items-start gap-2">
                 <span className="text-gold-400 font-bold">•</span>
                 <span>
-                  <strong className="text-parchment-100">In-House Neural Restoration:</strong> Using local CodeFormer
+                  <strong className="text-parchment-100">In-House Neural Restoration:</strong> Using local GFPGAN
                   and Real-ESRGAN pipelines, we restore vintage 1920s–1980s prints at zero marginal compute cost —
                   allowing us to bring a photo restoration down to just $49.
                 </span>
@@ -121,7 +121,7 @@ export default function About() {
                 <tr>
                   <td className="py-3 font-medium text-parchment-100">Photo Restoration</td>
                   <td className="py-3 text-parchment-200/50">Hand retouching ($100s/hr)</td>
-                  <td className="py-3 text-parchment-100">CodeFormer neural lab + Human Master QC</td>
+                  <td className="py-3 text-parchment-100">GFPGAN neural lab + Human Master QC</td>
                 </tr>
               </tbody>
             </table>
