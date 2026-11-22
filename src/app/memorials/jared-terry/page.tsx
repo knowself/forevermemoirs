@@ -206,6 +206,16 @@ export default function JaredTerryMemorial() {
           part of his story has its songs. His family keeps this page, and it
           will grow — for Jervais, most of all.
         </p>
+        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-[#171412]/60">
+          Every chapter has its own playlist — an original soundtrack made for
+          Jared, and the songs his family chooses.{" "}
+          <Link
+            href="/memorials#music"
+            className="font-semibold text-dodger underline decoration-dodger/30 underline-offset-4 hover:decoration-dodger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dodger rounded-sm"
+          >
+            How the music works
+          </Link>
+        </p>
       </section>
 
       {/* Chapters */}

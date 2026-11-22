@@ -68,8 +68,66 @@ export default function MemorialsIndex() {
             </article>
           ))}
         </div>
+      </section>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-relaxed text-[#171412]/55">
+      <section
+        id="music"
+        aria-labelledby="music-heading"
+        className="mx-auto max-w-4xl scroll-mt-28 px-6 pb-16 sm:pb-24"
+      >
+        <h2
+          id="music-heading"
+          className="text-center font-serif text-3xl sm:text-4xl font-bold tracking-tight"
+        >
+          The music of a life
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-center text-base sm:text-lg leading-relaxed text-[#171412]/75">
+          Music is such a powerful part of memory. Every chapter of a Living
+          Memorial has its own playlist — and every family chooses how that
+          music works.
+        </p>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <article className="rounded-3xl bg-dodger p-8 text-white shadow-[0_16px_36px_-12px_rgba(0,90,156,0.55)]">
+            <h3 className="font-serif text-xl font-bold leading-snug">
+              An original soundtrack
+            </h3>
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-white/85">
+              Music made for this life alone — an original score for every
+              chapter. Because it is original, there are no licensing fees, no
+              rights holders, and nothing that can be muted or taken down.
+              Included in every Living Memorial.
+            </p>
+          </article>
+          <article className="rounded-3xl border border-dodger/20 bg-white p-8 shadow-[0_2px_24px_-8px_rgba(0,90,156,0.25)]">
+            <h3 className="font-serif text-xl font-bold leading-snug">
+              Their songs
+            </h3>
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#171412]/75">
+              The songs they loved — linked from each chapter to Spotify,
+              Apple Music, or YouTube, where they play on your own account.
+              The music they loved, heard where it is licensed.
+            </p>
+          </article>
+          <article className="rounded-3xl border border-dodger/20 bg-white p-8 shadow-[0_2px_24px_-8px_rgba(0,90,156,0.25)]">
+            <h3 className="font-serif text-xl font-bold leading-snug">
+              One signature song, licensed
+            </h3>
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#171412]/75">
+              If one song has to be theirs — in the tribute film itself — we
+              arrange the license for it, priced at cost. It takes time, and
+              it is the premium choice for the song that says it all.
+            </p>
+          </article>
+        </div>
+        <p className="mx-auto mt-10 max-w-2xl text-center font-serif italic text-lg leading-relaxed text-[#171412]/75">
+          The classic hymns — Amazing Grace, Abide With Me — are public
+          domain, so they can be performed for your family with no license at
+          all.
+        </p>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 pb-16 sm:pb-24">
+        <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-[#171412]/55">
           Some families keep their memorial private, for family and friends
           only. Those memorials are never listed here — a memorial appears on
           this page only when its family has chosen to share it publicly.

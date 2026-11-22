@@ -36,6 +36,7 @@ const addOns = [
   "24-hour rush production",
   "Extended photo restoration beyond the included set",
   "Keepsake USB drives for family members",
+  "A licensed signature song in the tribute film",
 ];
 
 const steps = [
@@ -118,6 +119,22 @@ export default function FuneralHomes() {
               {addOns.join("  •  ")}
             </p>
           </div>
+        </div>
+
+        {/* Music, without the licensing worry */}
+        <div className="rounded-3xl border border-gold-500/25 bg-ink-900/60 p-8 sm:p-12 space-y-4 text-center">
+          <h2 className="font-serif text-2xl font-bold text-parchment-100">
+            Music, without the licensing worry
+          </h2>
+          <p className="text-parchment-200/70 leading-relaxed max-w-2xl mx-auto">
+            Music is where memorial films usually run into trouble —
+            performance fees, streaming licenses, and takedowns when a video
+            goes online. Our films use original music made for each life, so
+            there are no licensing fees, no rights holders, and nothing that
+            can be muted or taken down. Your home&apos;s own license covers
+            the music played in the room at the service; our original music
+            covers everything online.
+          </p>
         </div>
 
         {/* How partnering works */}
