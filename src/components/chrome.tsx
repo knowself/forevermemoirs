@@ -159,8 +159,9 @@ export function Header() {
 
 export function MobileCTA() {
   const pathname = usePathname();
-  // Don't cover the order form's own submit button
-  if (pathname === "/order") return null;
+  // Don't cover the order form's own submit button, and keep sales CTAs
+  // off memorial pages — a Living Memorial is no place for one.
+  if (pathname === "/order" || pathname.startsWith("/memorials")) return null;
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 md:hidden">
       <div className="border-t border-gold-500/25 bg-ink-950/90 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">

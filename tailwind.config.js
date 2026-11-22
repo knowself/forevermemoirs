@@ -39,6 +39,23 @@ module.exports = {
           600: "#9c721c",
           DEFAULT: "#c89e27",
         },
+        // Dodger blue — the Living Memorials motif (#005A9C). Jared Terry,
+        // the first memorial, was a lifelong Dodgers fan; the blue is a
+        // tribute to him. Warm ivory ground, Dodger blue primary, gold
+        // rules tie back to the ForeverMemoirs brand.
+        dodger: {
+          50: "#eef6fc",
+          100: "#d7e9f7",
+          200: "#b0d2ee",
+          300: "#7fb3dd",
+          400: "#4a8fc9",
+          500: "#1f74b8",
+          600: "#005A9C",
+          700: "#004b82",
+          800: "#003d6b",
+          900: "#002f52",
+          DEFAULT: "#005A9C",
+        },
         film: {
           dark: "#0b0907",
           panel: "#161310",
