@@ -173,6 +173,38 @@ export default function JaredTerryMemorial() {
         <div className="relative h-1 bg-[#c89e27]" aria-hidden="true" />
       </section>
 
+      {/* Watch the Service — memorial service video */}
+      <section
+        id="watch-the-service"
+        aria-labelledby="watch-the-service-heading"
+        className="border-b border-dodger/15 bg-white"
+      >
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 py-14 sm:py-20">
+          <h2
+            id="watch-the-service-heading"
+            className="text-center font-serif text-3xl sm:text-4xl font-bold tracking-tight"
+          >
+            Watch the Service
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm sm:text-base leading-relaxed text-[#171412]/60">
+            The memorial service, November 17, 2026, Charlet Funeral Home,
+            Zachary, Louisiana.
+          </p>
+          <div className="mt-8 overflow-hidden rounded-2xl bg-[#171412] shadow-[0_20px_44px_-16px_rgba(0,90,156,0.45)]">
+            <div className="relative aspect-video w-full">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/Hu8VPKhDDvA"
+                title="Memorial service for Jared Nathanael Terry"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Chapter navigation — sticky pills */}
       <nav
         aria-label="Chapters of Jared's life"
