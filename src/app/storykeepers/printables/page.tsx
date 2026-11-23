@@ -1,7 +1,7 @@
 /* ============================================================================
  * FOREVERMEMOIRS — PRINTABLES (/storykeepers/printables)
  * ----------------------------------------------------------------------------
- * Verified visitors only. Copy below is Joe-approved.
+ * Open to everyone — no email gate. Copy below is Joe-approved.
  *
  * The worksheet PDFs live in public/printables/ (built by
  * ~/workspace/your_files/forevermemoirs-kdp/build_printables.py) and each
@@ -10,7 +10,6 @@
 
 import type { Metadata } from "next";
 import CornerArticle from "../Article";
-import { requireStorykeeper } from "../guard";
 
 export const metadata: Metadata = {
   title: "Printables — The Storykeepers' Corner",
@@ -39,8 +38,7 @@ const WORKSHEETS = [
   },
 ];
 
-export default async function Printables() {
-  await requireStorykeeper();
+export default function Printables() {
 
   return (
     <CornerArticle

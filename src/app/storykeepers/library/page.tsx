@@ -1,14 +1,14 @@
 /* ============================================================================
  * FOREVERMEMOIRS — STORYKEEPERS' CORNER LIBRARY (/storykeepers/library)
  * ----------------------------------------------------------------------------
- * The resource room. Verified visitors only (see ../guard.ts) — the gate
- * lives on /storykeepers. Copy below is Joe-approved.
+ * The resource room. Open to everyone — no email gate; the front door
+ * stays as the welcome mat. Copy below is Joe-approved.
  * ========================================================================== */
 
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { requireStorykeeper } from "../guard";
+import OptionalSignup from "../OptionalSignup";
 
 export const metadata: Metadata = {
   title: "The Library — The Storykeepers' Corner",
@@ -44,8 +44,7 @@ const CARDS = [
   },
 ];
 
-export default async function Library() {
-  await requireStorykeeper();
+export default function Library() {
 
   return (
     <div className="relative overflow-hidden film-grain py-12 sm:py-16">
@@ -91,6 +90,10 @@ export default async function Library() {
               <p className="mt-4 text-sm text-gold-300">Open →</p>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12 max-w-3xl mx-auto">
+          <OptionalSignup />
         </div>
       </div>
     </div>

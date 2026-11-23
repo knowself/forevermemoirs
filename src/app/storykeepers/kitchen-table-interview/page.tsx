@@ -1,13 +1,12 @@
 /* ============================================================================
  * FOREVERMEMOIRS — "THE KITCHEN TABLE INTERVIEW" (/storykeepers/kitchen-table-interview)
  * ----------------------------------------------------------------------------
- * Verified visitors only. Copy below is Joe-approved — keep the words
+ * Open to everyone — no email gate. Copy below is Joe-approved — keep the words
  * verbatim; only the layout may change.
  * ========================================================================== */
 
 import type { Metadata } from "next";
 import CornerArticle from "../Article";
-import { requireStorykeeper } from "../guard";
 
 export const metadata: Metadata = {
   title: "The Kitchen Table Interview — The Storykeepers' Corner",
@@ -22,8 +21,7 @@ const FOLLOW_UPS = [
   "\u201cTell me more about that part.\u201d",
 ];
 
-export default async function KitchenTableInterview() {
-  await requireStorykeeper();
+export default function KitchenTableInterview() {
 
   return (
     <CornerArticle

@@ -1,13 +1,12 @@
 /* ============================================================================
  * FOREVERMEMOIRS — "WHEN MEMORIES HURT" (/storykeepers/when-memories-hurt)
  * ----------------------------------------------------------------------------
- * Verified visitors only. Copy below is Joe-approved — keep the words
+ * Open to everyone — no email gate. Copy below is Joe-approved — keep the words
  * verbatim; only the layout may change.
  * ========================================================================== */
 
 import type { Metadata } from "next";
 import CornerArticle from "../Article";
-import { requireStorykeeper } from "../guard";
 
 export const metadata: Metadata = {
   title: "When Memories Hurt — The Storykeepers' Corner",
@@ -15,8 +14,7 @@ export const metadata: Metadata = {
     "A gentle guide to the tender questions: permission to skip, to pause, to write just one sentence.",
 };
 
-export default async function WhenMemoriesHurt() {
-  await requireStorykeeper();
+export default function WhenMemoriesHurt() {
 
   return (
     <CornerArticle

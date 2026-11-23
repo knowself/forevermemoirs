@@ -1,13 +1,12 @@
 /* ============================================================================
  * FOREVERMEMOIRS — QUESTIONS (/storykeepers/faq)
  * ----------------------------------------------------------------------------
- * Verified visitors only. Copy below is Joe-approved — keep the words
+ * Open to everyone — no email gate. Copy below is Joe-approved — keep the words
  * verbatim; only the layout may change.
  * ========================================================================== */
 
 import type { Metadata } from "next";
 import CornerArticle from "../Article";
-import { requireStorykeeper } from "../guard";
 
 export const metadata: Metadata = {
   title: "Questions — The Storykeepers' Corner",
@@ -42,8 +41,7 @@ const QA = [
   },
 ];
 
-export default async function Faq() {
-  await requireStorykeeper();
+export default function Faq() {
 
   return (
     <CornerArticle

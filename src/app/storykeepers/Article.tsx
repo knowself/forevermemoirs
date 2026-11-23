@@ -8,6 +8,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import OptionalSignup from "./OptionalSignup";
 
 export default function CornerArticle({
   image,
@@ -49,6 +50,10 @@ export default function CornerArticle({
 
         <div className="mt-10 space-y-6 text-lg leading-relaxed text-parchment-200/85">
           {children}
+        </div>
+
+        <div className="mt-12">
+          <OptionalSignup />
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4 border-t border-white/10 pt-8">

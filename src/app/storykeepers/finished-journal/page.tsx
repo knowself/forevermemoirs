@@ -1,14 +1,13 @@
 /* ============================================================================
  * FOREVERMEMOIRS — "WHAT TO DO WITH A FINISHED JOURNAL" (/storykeepers/finished-journal)
  * ----------------------------------------------------------------------------
- * Verified visitors only. Copy below is Joe-approved — keep the words
+ * Open to everyone — no email gate. Copy below is Joe-approved — keep the words
  * verbatim; only the layout may change. The VideoPostcard/Memoir Film
  * mentions are presented as options, not a pitch, per Joe's direction.
  * ========================================================================== */
 
 import type { Metadata } from "next";
 import CornerArticle from "../Article";
-import { requireStorykeeper } from "../guard";
 
 export const metadata: Metadata = {
   title: "What To Do With a Finished Journal — The Storykeepers' Corner",
@@ -16,8 +15,7 @@ export const metadata: Metadata = {
     "Keep it safe, share it with family — and if you want, turn it into something that moves.",
 };
 
-export default async function FinishedJournal() {
-  await requireStorykeeper();
+export default function FinishedJournal() {
 
   return (
     <CornerArticle
