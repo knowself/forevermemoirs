@@ -29,6 +29,25 @@ export const metadata: Metadata = {
   },
 };
 
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "ForeverMemoirs",
+  description:
+    "A&E Biography-style personal documentary films and museum-grade photograph restoration. Rebuilt from Hermosa Beach on a next-generation remote and AI pipeline.",
+  url: "https://www.forevermemoirs.com",
+  telephone: "+1-310-379-9822",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1904 Big Valley Road, Suite 143",
+    addressLocality: "Finley",
+    addressRegion: "CA",
+    postalCode: "95435",
+    addressCountry: "US",
+  },
+  areaServed: "Lake County, California",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark scroll-smooth">
@@ -37,6 +56,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <MobileCTA />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA),
+          }}
+        />
       </body>
     </html>
   );

@@ -172,6 +172,17 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* Service Area — Lake County, California */}
+      <section className="relative mx-auto max-w-3xl px-6 pb-20 text-center z-10">
+        <p className="text-sm sm:text-base text-parchment-200/70 leading-relaxed">
+          ForeverMemoirs is based in Finley, in Lake County, California — and
+          works with families everywhere, entirely remotely. Photo restoration
+          and memorial films are made for families across Lake County and
+          beyond, with interviews guided over video calls and films delivered
+          as private streaming links your family can share anywhere.
+        </p>
+      </section>
     </div>
   );
 }
