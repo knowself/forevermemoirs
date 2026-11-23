@@ -27,7 +27,7 @@ export default async function KitchenTableInterview() {
 
   return (
     <CornerArticle
-      image="/images/storykeepers/kitchen-table-interview.png"
+      image="/images/storykeepers/kitchen-table-interview.webp"
       imageAlt="A grandmother and grandchild talking at a kitchen table with a notebook open between them"
       kicker="The Storykeepers' Corner"
       title="The Kitchen Table Interview"

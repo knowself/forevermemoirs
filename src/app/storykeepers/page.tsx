@@ -41,7 +41,7 @@ export default async function Storykeepers() {
       <div className="relative mx-auto max-w-3xl px-6 z-10">
         <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
           <Image
-            src="/images/storykeepers/front-door.png"
+            src="/images/storykeepers/front-door.webp"
             alt="A kettle steaming on a warm kitchen stove in morning light"
             width={1920}
             height={1280}

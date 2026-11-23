@@ -44,7 +44,7 @@ export default async function Printables() {
 
   return (
     <CornerArticle
-      image="/images/storykeepers/printables.png"
+      image="/images/storykeepers/printables.webp"
       imageAlt="A neat stack of worksheet pages with a pencil and a mason jar of wildflowers"
       kicker="The Storykeepers' Corner"
       title="Printables"

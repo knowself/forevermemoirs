@@ -20,7 +20,7 @@ export default async function WhenMemoriesHurt() {
 
   return (
     <CornerArticle
-      image="/images/storykeepers/when-memories-hurt.png"
+      image="/images/storykeepers/when-memories-hurt.webp"
       imageAlt="Weathered hands wrapped around a warm mug beside a folded quilt in soft window light"
       kicker="The Storykeepers' Corner"
       title="When Memories Hurt: A Gentle Guide to Tender Questions"

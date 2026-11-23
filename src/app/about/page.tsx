@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Our Story — ForeverMemoirs",
+  description:
+    "ForeverMemoirs began in Hermosa Beach making A&E Biography-style documentary films. ForeverMemoirs 2.0 restores vintage photos and films family stories — remotely, from $49.",
+};
 
 export default function About() {
   return (

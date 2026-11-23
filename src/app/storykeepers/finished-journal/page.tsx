@@ -21,7 +21,7 @@ export default async function FinishedJournal() {
 
   return (
     <CornerArticle
-      image="/images/storykeepers/finished-journal.png"
+      image="/images/storykeepers/finished-journal.webp"
       imageAlt="A completed journal tied with twine beside old photographs, a film strip curling from it"
       kicker="The Storykeepers' Corner"
       title="What To Do With a Finished Journal"

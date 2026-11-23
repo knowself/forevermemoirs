@@ -139,6 +139,16 @@ export function Header() {
             Our Story
           </Link>
           <Link
+            href="/memorials"
+            className={`hidden md:inline-block transition-colors ${
+              pathname.startsWith("/memorials")
+                ? "text-gold-300 font-medium"
+                : "text-parchment-200/80 hover:text-gold-300"
+            }`}
+          >
+            Living Memorials
+          </Link>
+          <Link
             href="/order"
             className="relative group overflow-hidden rounded-full px-3 py-1.5 sm:px-5 sm:py-2 min-h-[44px] inline-flex items-center text-[11px] sm:text-xs font-medium tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/25 active:scale-95"
           >

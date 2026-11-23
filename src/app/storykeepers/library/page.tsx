@@ -54,7 +54,7 @@ export default async function Library() {
       <div className="relative mx-auto max-w-4xl px-6 z-10">
         <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl max-w-3xl mx-auto">
           <Image
-            src="/images/storykeepers/library.png"
+            src="/images/storykeepers/library.webp"
             alt="A wooden bookshelf with well-loved books and a small framed photo in warm lamplight"
             width={1920}
             height={1280}

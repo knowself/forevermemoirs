@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useRef, useCallback } from "react";
 
 type Pair = {
@@ -10,6 +11,8 @@ type Pair = {
   after: string;
   beforeAlt: string;
   afterAlt: string;
+  width: number;
+  height: number;
 };
 
 const PAIRS: Pair[] = [
@@ -17,28 +20,34 @@ const PAIRS: Pair[] = [
     id: "heirloom",
     label: "The Heirloom Portrait",
     sublabel: "Grandfather & granddaughter, c. 1940s",
-    before: "/images/damaged-portrait.jpg",
-    after: "/images/restored-portrait.jpg",
+    before: "/images/damaged-portrait.webp",
+    after: "/images/restored-portrait.webp",
     beforeAlt: "Original damaged portrait",
     afterAlt: "Restored portrait",
+    width: 1200,
+    height: 896,
   },
   {
     id: "grandmother",
     label: "Grandmother & Son",
     sublabel: "Studio portrait, c. 1960s",
-    before: "/images/damaged-grandmother-son.jpg",
-    after: "/images/restored-grandmother-son.jpg",
+    before: "/images/damaged-grandmother-son.webp",
+    after: "/images/restored-grandmother-son.webp",
     beforeAlt: "Original damaged photo of a grandmother with her son",
     afterAlt: "Restored photo of a grandmother with her son",
+    width: 1920,
+    height: 1280,
   },
   {
     id: "boydog",
     label: "A Boy & His Dog",
     sublabel: "Backyard snapshot, c. 1970s",
-    before: "/images/damaged-boy-dog.jpg",
-    after: "/images/restored-boy-dog.jpg",
+    before: "/images/damaged-boy-dog.webp",
+    after: "/images/restored-boy-dog.webp",
     beforeAlt: "Original damaged photo of a young boy with his dog",
     afterAlt: "Restored photo of a young boy with his dog",
+    width: 1920,
+    height: 1280,
   },
 ];
 
@@ -79,9 +88,11 @@ function PairSlider({ pair }: { pair: Pair }) {
         className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-ink-950 cursor-ew-resize touch-pan-y"
       >
         {/* Restored Layer (Full background layer) */}
-        <img
+        <Image
           src={pair.after}
           alt={pair.afterAlt}
+          width={pair.width}
+          height={pair.height}
           className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         />
 
@@ -90,9 +101,11 @@ function PairSlider({ pair }: { pair: Pair }) {
           className="absolute inset-0 h-full overflow-hidden pointer-events-none"
           style={{ width: `${sliderPosition}%` }}
         >
-          <img
+          <Image
             src={pair.before}
             alt={pair.beforeAlt}
+            width={pair.width}
+            height={pair.height}
             className="absolute inset-0 h-full max-w-none object-cover"
             style={{
               width: containerRef.current ? `${containerRef.current.offsetWidth}px` : "100%",
@@ -170,10 +183,11 @@ export function BeforeAfterSlider() {
                   : "border-white/10 bg-ink-900/60 hover:border-gold-500/30"
               }`}
             >
-              <img
+              <Image
                 src={pair.after}
-                alt=""
-                aria-hidden="true"
+                alt={pair.afterAlt}
+                width={80}
+                height={80}
                 className="h-10 w-10 rounded-lg object-cover pointer-events-none"
               />
               <span className="pr-1">

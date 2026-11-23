@@ -163,6 +163,13 @@ export default function Home() {
               Learn About ForeverMemoirs 2.0
             </Link>
           </div>
+
+          <p className="mt-6 text-sm text-parchment-200/70">
+            <Link href="/memorials" className="text-gold-300 hover:underline">
+              Explore Living Memorials →
+            </Link>
+            {" — a home page for a life, kept by the family."}
+          </p>
         </div>
       </section>
     </div>

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "For Business — ForeverMemoirs",
+  description:
+    "ForeverMemoirs partners with businesses that serve families at life's milestones — starting with funeral homes and premium Memorial Tribute Films, delivered in days.",
+};
 
 export default function Business() {
   return (
@@ -41,6 +48,13 @@ export default function Business() {
             </p>
           </Link>
         </div>
+
+        <p className="text-center text-sm text-parchment-200/70">
+          <Link href="/memorials" className="text-gold-300 hover:underline">
+            Living Memorials
+          </Link>
+          {" — a home page for a life, kept by the family."}
+        </p>
 
         <p className="text-center text-sm text-parchment-200/50">
           More partner programs are on the way.

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 export function CinematicShowcase() {
@@ -12,9 +13,11 @@ export function CinematicShowcase() {
         {/* Left Column: Film Stills & Cinematic Player */}
         <div className="lg:col-span-7">
           <div className="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl group">
-            <img
-              src="/images/cinematic-interview.jpg"
+            <Image
+              src="/images/cinematic-interview.webp"
               alt="Cinematic Family Memoir Interview"
+              width={1376}
+              height={768}
               className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Dark Vignette Overlay */}

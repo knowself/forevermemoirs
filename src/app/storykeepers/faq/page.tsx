@@ -47,7 +47,7 @@ export default async function Faq() {
 
   return (
     <CornerArticle
-      image="/images/storykeepers/faq.png"
+      image="/images/storykeepers/faq.webp"
       imageAlt="A warmly lit open doorway with light spilling out"
       kicker="The Storykeepers' Corner"
       title="Questions"

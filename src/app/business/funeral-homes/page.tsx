@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Memorial Tribute Films for Funeral Homes — ForeverMemoirs",
+  description:
+    "A premium tribute film for the families you serve — restored photographs woven into a memorial, delivered in days. Two options: a 3-minute tribute and a 15-minute tribute.",
+};
 
 /* Funeral Home Services — B2B partner page.
  *

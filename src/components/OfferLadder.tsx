@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -288,9 +289,11 @@ export function OfferLadder() {
       {/* Shoebox Spotlight Callout */}
       <div className="mt-16 rounded-3xl border border-gold-500/20 bg-gradient-to-r from-ink-900/80 via-ink-950 to-ink-900 p-8 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-6">
-          <img
-            src="/images/shoebox-memories.jpg"
+          <Image
+            src="/images/shoebox-memories.webp"
             alt="The Shoebox of Family Memories"
+            width={1376}
+            height={768}
             className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl object-cover border border-gold-500/30 shadow-xl shrink-0"
           />
           <div>
